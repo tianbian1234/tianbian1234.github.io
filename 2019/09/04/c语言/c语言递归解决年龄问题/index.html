@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Hexo">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="c语言递归解决年龄问题, Hexo">
+    <meta name="description" content="问题描述有5个人坐在一起，问第5个人多少岁，他说比第4个人大2岁。问第4个人多少岁，他说比第3个人大2岁。问第3人多少岁，他说比第2个人大2岁。问第2个人多少岁，他说比第1个人大2岁。最后问第1个人，他说他是10岁。编写程序，当输入第几个人">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | Hexo</title>
+    <title>c语言递归解决年龄问题 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        c语言递归解决年龄问题
                     </div>
                 </div>
             </div>
@@ -388,7 +388,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-23
+                    2019-09-04
                 </div>
 
                 
@@ -404,19 +404,16 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>有5个人坐在一起，问第5个人多少岁，他说比第4个人大2岁。问第4个人多少岁，他说比第3个人大2岁。问第3人多少岁，他说比第2个人大2岁。问第2个人多少岁，他说比第1个人大2岁。最后问第1个人，他说他是10岁。编写程序，当输入第几个人时求出其对应的年龄。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>该问题是一个递归问题。要求第5个人的年龄，必须先知道第4个人的年龄，显然第4个人的年龄也是未知的，但可以由第3个人的年龄推算出来。而想知道第3个人的年龄又必须先知道第2个人的年龄，第2个人的年龄则取决于第1个人的年龄。</p>
+<p>又已知每个人的年龄都比其前一个人的年龄大2，因此根据题意，可得到如下几个表达式：<br>age(5)=age(4)+2<br>age(4)=age(3)+2<br>age(3)=age(2)+2<br>age(2)=age(1)+2<br>age(1)=10</p>
+<p>归纳上面5个表达式，用数学公式表达出来为：</p>
+<p>求解第n个人的年龄分成两个阶段。第一个阶段是“回推”过程，第二个阶段是“递推”过程。</p>
+<p>在“回推”过程中，利用的是n&gt;1时的公式age(n-l)+2。要求的是第n个人的年龄，因此首先将第n个人的年龄回推到第n-1个人的年龄，但第n-1个人的年龄仍然未知，因此需要继续回推到第n-2个人的年龄，第n-2个人的年龄仍然未知，需要继续向前回推，如此下去，一直回推到第1个人的年龄。而第1个人的年龄是已知的，因此，第一阶段的 “回推”结束。</p>
+<p>在“递推”过程中，从第1个人的年龄可以推出第2个人的年龄，从第2个人的年龄可以推出第3个人的年龄，如此下去一直递推到第5个人的年龄。</p>
+<h2 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h2><p>理解了问题分析中的递归处理过程后，算法设计就非常简单了。只需要将公式转换成一个函数，然后用main()函数调用它就可以了。</p>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int age(int n)&#123;</span><br><span class="line"></span><br><span class="line">	int x;</span><br><span class="line">	if(n == 1)&#123;</span><br><span class="line">		 x = 10;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		x = age(n-1)+2</span><br><span class="line">	&#125;</span><br><span class="line">	return x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main(int argc, char const *argv[])</span><br><span class="line">&#123;</span><br><span class="line">	int n;</span><br><span class="line">    scanf(&quot;请输入n值：%d&quot;, &amp;n);</span><br><span class="line">    printf(&quot;第%d个人的年龄为%d\n&quot;, n, age(n));</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
             </div>
             <hr/>
@@ -575,9 +572,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Hello World》
+                    《c语言递归解决年龄问题》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/23/hello-world/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/c语言/c语言递归解决年龄问题/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> is licensed under a
@@ -621,31 +618,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/08/26/配置教学/">
+                <a href="/2019/09/04/c语言/c语言马踏棋盘/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="配置教学">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="c语言马踏棋盘">
                         
-                        <span class="card-title">配置教学</span>
+                        <span class="card-title">c语言马踏棋盘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编程原理，必须动手去做
-流水灯1.小灯珠的亮灭
-2.小灯珠的原理
-3.芯片的银角讲解
-4.程序的逻辑设计
-5.从一个小灯珠的闪动讲起
-6.定时器需要设计
-7.完成多个程序的设计蜂鸣器1.蜂鸣器原理收音机警示灯电机入门指尖陀螺开篇电子起点终点
+                            问题描述国际象棋的棋盘为8×8的方格棋盘。现将“马”放在任意指定的方格中，按照“马”走棋的规则将“马”进行移动。要求每个方格只能进入一次，最终使得“马”走遍棋盘的64个方格。
+编写一个C程序，实现马踏棋盘操作，要求用1〜64这64个数字标注
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
                         </span>
                         <span class="publish-author">
                             
@@ -656,41 +647,33 @@
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/教学/" target="_blank">
-                        <span class="chip bg-color">教学</span>
-                    </a>
-                    
-                </div>
-                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="fa fa-dot-circle-o"></i>
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/23/hello-world/">
+                <a href="/2019/09/04/c语言/C语言递归解决分鱼问题/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="C语言递归解决分鱼问题">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">C语言递归解决分鱼问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            问题描述A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
                             </span>
                         <span class="publish-author">
                             
@@ -700,7 +683,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>

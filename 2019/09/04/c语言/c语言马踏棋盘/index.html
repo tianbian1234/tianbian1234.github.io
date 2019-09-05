@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, Hexo">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="c语言马踏棋盘, Hexo">
+    <meta name="description" content="问题描述国际象棋的棋盘为8×8的方格棋盘。现将“马”放在任意指定的方格中，按照“马”走棋的规则将“马”进行移动。要求每个方格只能进入一次，最终使得“马”走遍棋盘的64个方格。
+编写一个C程序，实现马踏棋盘操作，要求用1〜64这64个数字标注">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | Hexo</title>
+    <title>c语言马踏棋盘 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        c语言马踏棋盘
                     </div>
                 </div>
             </div>
@@ -388,7 +389,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-08-23
+                    2019-09-04
                 </div>
 
                 
@@ -404,20 +405,23 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>国际象棋的棋盘为8×8的方格棋盘。现将“马”放在任意指定的方格中，按照“马”走棋的规则将“马”进行移动。要求每个方格只能进入一次，最终使得“马”走遍棋盘的64个方格。</p>
+<p>编写一个C程序，实现马踏棋盘操作，要求用1〜64这64个数字标注马移动的路径，也就是按照求出的行走路线，将数字1，2，……64依次填入棋盘的方格中，并输出。</p>
+<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>国际象棋中，“马”的移动规则如图1所示。<br>      ○           ○<br> ○                     ○<br>           ●<br> ○                     ○<br>      ○           ○<br>图1</p>
+<p>如图1所示，图中实心的圆圈代表“马”的位置，它下一步可移动到图中空心圆圈所标注的8个位置上，该规则叫做“马走日”。但是如果“马”位于棋盘的边界附近，那么它下一步可移动到的位置就不一定有8个了，因为要保证“马”每一步都走在棋盘中。</p>
+<p>马踏棋盘的问题其实就是要将1，2，……，64填入到一个8×8的矩阵中，要求相邻的两个数按照“马”的移动规则放置在矩阵中。</p>
+<p>例如数字a放置在矩阵的（i，j）位置上，数字a+1只能放置在矩阵的（i-2，j+1），（i-1，j+2），（i+1，j+2），（i+2，j+1），（i+2，j-1），（i+1，j-2），（i-1，j-2），（i-2，j-1）之中的一个位置上。将矩阵填满并输出。</p>
+<p>这样在矩阵中从1，2……遍历到64，就得到了马踏棋盘的行走路线。因此本题的最终目的是输出一个8*8的矩阵，在该矩阵中填有1， 2……64这64个数字，相邻数字之间遵照“马走日”的规则。</p>
+<h2 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h2><p>解决马踏棋盘问题的一种比较容易理解的方法是应用递归的深度优先搜索的思想。因为“马”每走一步都是盲目的，它并不能判断当前的走步一定正确，而只能保证当前这步是可走的。</p>
+<p>“马”走的每一步棋都是从它当前位置出发，向下一步的8个位置中的1个行走(在它下一步有8个位置可走的情况下）。因此“马”当前所走的路径并不一定正确，因为它可能还有剩下的可选路径没有尝试马”的行走过程实际上就是一个深度探索的过程。“探索树”的根节点为“马”在棋盘中的初始位置。</p>
+<p>接下来“马”有两种行走方式，于是根节点派生出两个分支。而再往下一步行走，根节点的两个孩子又能够分别派生出其他不同的“行走路线”分支，如此派生下去，就得到了 “马”的所有可能的走步状态。</p>
+<p>可以想见，该探索树的叶子节点只可能有两种状态：一是该节点不能再派生出其他的“走步”分支了，也就是“马”走不通了；二是棋盘中的每个方格都被走到，即“马”踏遍棋盘。于是从该探索树的根节点到第二种情况的叶节点构成的路径，就是马踏棋盘的行走过程。</p>
+<p>如何才能通过搜索这棵探索树，找到这条马踏棋盘的行走路径呢？可以采用深度优先搜索的方法以先序的方式访问树中的各个节点，直到访问到叶节点。</p>
+<p>如果叶节点是第二种情况的叶节点，则搜索过程可以结束，因为找到了马踏棋盘的行走路径；如果叶节点为第一种情况的叶节点，即走不通了，则需要返回到上一层的节点，顺着该节点的下一条分支 继续进行深度优先搜索下去。</p>
+<p>因此在设计“马踏棋盘”的算法时可以借鉴图的深度优先遍历算法和二叉树的先序遍历算法。但是在这里并不需要真正地构建这样一棵探索树，只需要借用探索树的思想。</p>
+<p>在实际的操作过程中，所谓的探索树实际就是深度优先搜索的探索路径，每个节点实际就是当前的棋盘状态，而所谓的叶节点或者是在当前棋盘状态下，“马”无法再进行下一步行走；或者是马踏棋盘成功。</p>
+<h2 id="完整程序"><a href="#完整程序" class="headerlink" title="完整程序"></a>完整程序</h2><p>备注：因为程序涉及深度搜索，运行中叶节点不能再派生出其他的“走步”分支时，也就是“马”走不通了，则返回上一节点，比较复杂，运行较慢。（一般需要一分钟左右出现结果，请耐心等待。）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#define X 8</span><br><span class="line">#define Y 8</span><br><span class="line">int chess[X][Y];</span><br><span class="line">int nextxy(int *x, int *y, int count)  /*找到基于x,y位置的下一个可走的位置*/</span><br><span class="line">&#123;</span><br><span class="line">    switch(count)</span><br><span class="line">    &#123;</span><br><span class="line">        case 0:</span><br><span class="line">            if(*x+2&lt;=X-1 &amp;&amp; *y-1&gt;=0 &amp;&amp; chess[*x+2][*y-1]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x+2;</span><br><span class="line">                *y=*y-1;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 1:</span><br><span class="line">            if(*x+2&lt;=X-1 &amp;&amp; *y+1&lt;=Y-1 &amp;&amp; chess[*x+2][*y+1]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x+2;</span><br><span class="line">                *y=*y+1;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 2:</span><br><span class="line">            if(*x+1&lt;=X-1 &amp;&amp; *y-2&gt;=0 &amp;&amp; chess[*x+1][*y-2]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x+1;</span><br><span class="line">                *y=*y-2;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 3:</span><br><span class="line">            if(*x+1&lt;=X-1 &amp;&amp; *y+2&lt;=Y-1 &amp;&amp; chess[*x+1][*y+2]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x+1;</span><br><span class="line">                *y=*y+2;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 4:</span><br><span class="line">            if(*x-2&gt;=0 &amp;&amp; *y-1&gt;=0 &amp;&amp; chess[*x-2][*y-1]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x-2;</span><br><span class="line">                *y=*y-1;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 5:</span><br><span class="line">            if(*x-2&gt;=0 &amp;&amp; *y+1&lt;=Y-1 &amp;&amp; chess[*x-2][*y+1]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x-2;</span><br><span class="line">                *y=*y+1;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 6:</span><br><span class="line">            if(*x-1&gt;=0 &amp;&amp; *y-2&gt;=0 &amp;&amp; chess[*x-1][*y-2]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x-1;</span><br><span class="line">                *y=*y-2;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        case 7:</span><br><span class="line">            if(*x-1&gt;=0 &amp;&amp; *y+2&lt;=Y-1 &amp;&amp; chess[*x-1][*y+2]==0)</span><br><span class="line">            &#123;</span><br><span class="line">                *x=*x-1;</span><br><span class="line">                *y=*y+2;</span><br><span class="line">                return 1;</span><br><span class="line">            &#125;</span><br><span class="line">            break;</span><br><span class="line">        default:</span><br><span class="line">            break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int TravelChessBoard(int x, int y, int tag)  /*深度优先搜索地&quot;马踏棋盘&quot;*/</span><br><span class="line">&#123;</span><br><span class="line">    int x1=x, y1=y, flag=0, count=0;</span><br><span class="line">    chess[x][y]=tag;</span><br><span class="line">    if(tag == X*Y)</span><br><span class="line">    &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    flag=nextxy(&amp;x1, &amp;y1, count);</span><br><span class="line">    while(flag==0 &amp;&amp; count&lt;7)</span><br><span class="line">    &#123;</span><br><span class="line">        count=count+1;</span><br><span class="line">        flag=nextxy(&amp;x1, &amp;y1, count);</span><br><span class="line">    &#125;</span><br><span class="line">    while(flag)</span><br><span class="line">    &#123;</span><br><span class="line">        if(TravelChessBoard(x1, y1, tag+1))</span><br><span class="line">            return 1;</span><br><span class="line">        x1=x;</span><br><span class="line">        y1=y;</span><br><span class="line">        count=count+1;</span><br><span class="line">        flag=nextxy(&amp;x1, &amp;y1, count);  /*寻找下一个(x,y)*/</span><br><span class="line">        while(flag==0 &amp;&amp; count&lt;7)</span><br><span class="line">        &#123;  /*循环地寻找下一个(x,y)*/</span><br><span class="line">            count=count+1;</span><br><span class="line">            flag=nextxy(&amp;x1, &amp;y1, count);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(flag == 0)</span><br><span class="line">        chess[x][y]=0;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=0; i&lt;X; i++)</span><br><span class="line">        for(j=0; j&lt;Y; j++)</span><br><span class="line">            chess[i][j]=0;</span><br><span class="line">    if(TravelChessBoard(2, 0, 1))</span><br><span class="line">    &#123;</span><br><span class="line">        for(i=0; i&lt;X; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            for(j=0; j&lt;Y; j++)</span><br><span class="line">                printf(&quot;%-5d&quot;, chess[i][j]);</span><br><span class="line">            printf(&quot;\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;The horse has travelled the chess borad\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">        printf(&quot;The horse cannot travel the chess board\n&quot;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -575,9 +579,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《Hello World》
+                    《c语言马踏棋盘》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/08/23/hello-world/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/c语言/c语言马踏棋盘/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> is licensed under a
@@ -621,31 +625,26 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/08/26/配置教学/">
+                <a href="/2019/09/04/c语言/C语言在字符串的指定位置插入字符/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="配置教学">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="C语言在字符串的指定位置插入字符">
                         
-                        <span class="card-title">配置教学</span>
+                        <span class="card-title">C语言在字符串的指定位置插入字符</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编程原理，必须动手去做
-流水灯1.小灯珠的亮灭
-2.小灯珠的原理
-3.芯片的银角讲解
-4.程序的逻辑设计
-5.从一个小灯珠的闪动讲起
-6.定时器需要设计
-7.完成多个程序的设计蜂鸣器1.蜂鸣器原理收音机警示灯电机入门指尖陀螺开篇电子起点终点
+                            问题描述请编写程序，实现以下功能：在字符串中的所有数字字符前加一个$字符。例如，输入 A1B23CD45，输出 A$1B$2$3CD$4$5。
+问题分析在字符串S的所有数字字符前加一个$字符，可以有两种实现方法。
+方法一：用串S拷贝出另一个
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-26
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
                         </span>
                         <span class="publish-author">
                             
@@ -656,41 +655,33 @@
                     </div>
                 </div>
                 
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/教学/" target="_blank">
-                        <span class="chip bg-color">教学</span>
-                    </a>
-                    
-                </div>
-                
             </div>
         </div>
         
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="fa fa-dot-circle-o"></i>
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/08/23/hello-world/">
+                <a href="/2019/09/04/c语言/c语言递归解决年龄问题/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="c语言递归解决年龄问题">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">c语言递归解决年龄问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            问题描述有5个人坐在一起，问第5个人多少岁，他说比第4个人大2岁。问第4个人多少岁，他说比第3个人大2岁。问第3人多少岁，他说比第2个人大2岁。问第2个人多少岁，他说比第1个人大2岁。最后问第1个人，他说他是10岁。编写程序，当输入第几个人
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-08-23
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
                             </span>
                         <span class="publish-author">
                             
@@ -700,7 +691,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
