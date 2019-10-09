@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C语言递归解决分鱼问题, Hexo">
-    <meta name="description" content="问题描述A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了">
+    <meta name="keywords" content="通俗版第一课, Hexo">
+    <meta name="description" content="自我介绍大家好，我叫高彦涛，高大上的高，彦青的彦，波涛的涛，大家可能还不知道彦青是谁，可以去看看水浒传，里面那个最擅长摔跤的
+帅小伙就是彦青，我叫什么不重要，只要知道我姓高就好。我是一个程序员，按真实的编程年龄来算因该是8年程序员，工作经历">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C语言递归解决分鱼问题 | Hexo</title>
+    <title>通俗版第一课 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C语言递归解决分鱼问题
+                        通俗版第一课
                     </div>
                 </div>
             </div>
@@ -375,9 +376,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/教学/" target="_blank">
+                                <span class="chip bg-color">教学</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -388,7 +393,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-04
+                    2019-09-07
                 </div>
 
                 
@@ -404,16 +409,147 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了一份鱼，于是他将剩下的鱼平分为5份，扔掉多余的一条，然后只拿走了自己的一份；接着C、D、E依次醒来，也都按同样的办法分鱼。问这5人至少合伙捕到多少条鱼？每个人醒来后所看到的鱼是多少条？</p>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>假设5个人合伙捕了x条鱼，则“A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了”之后，还剩下4(x-1)/5条鱼。</p>
-<p>这里实际包含了一个隐含条件：假设Xn为第n(n=1、2、3、4、5)个人分鱼前鱼的总数，则(Xn-1)/5必须为正整数，否则不合题意。（Xn-1)/5为正整数即(X〜l)mod5=0必须成立。</p>
-<p>又根据题意，应该有下面等式：<br>X4=4(X5-1)/5<br>X3=4(X4-1)/5<br>X2-4(X3-1)/5<br>X1=4(X2-1)/5</p>
-<p>则一旦给定X5，就可以依次推算出X4、X3、X2和X1的值。要保证X5、X4、X3、X2和X1都满足条件(Xn-1)mod5=0，此时的X5则为5个人合伙捕到的鱼的总条数。显然，5个人合伙可能捕到的鱼的条数并不唯一，但题目中强调了 “至少”合伙捕到的鱼，此时题目的答案唯一。该问题可使用递归的方法求解。</p>
-<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><p>在main()函数中构建一个不定次数的do-while循环。定义变量x表示5个人合伙可能捕到的鱼的条数，可以取x的最小值为6，让x值逐渐增加，x每一次取值，都增加5，直到找到一个符合问题要求的答案。由于题目中问“这5人至少合伙捕到多少条鱼”，而我找到的第一个x值就是5个人至少捕到的鱼的总条数。</p>
-<p>通过这个循环，就可以对每一个的可能情况进行检查。当然，是通过调用分鱼的递归函数来进行检查的。</p>
-<p>分鱼的递归函数如下：<br>fish()函数中包含了两个参数：n和x。n表示参与分鱼的人数，x表示n个人分鱼前鱼的总条数。这两个参数都是由main()函数中传递进来的。</p>
-<p>根据前面的分析，当n=5时，(x-1)mod5==0必须成立，否则该x值不是满足题意的值，退出fish()函数，返回到main()函数，main()函数中再传递新的x值到fish中进行检验。如果(x-1)mod5==0条件成立，则要判断n=4时，(x-1)mod5=0条件是否成立，需要注意的是，此时的形参x是4个人分鱼前鱼的总条数，即f(5,x)递归调用f(4,(x-1)/5*4)。这样依次进行下去，直到n=1时，(x-1)mod5==0条件仍成立，则说明开始从main()函数中传递进来的x值是符合题意要求的一个值，可以逐层从递归函数中返回，每次返回值都为1，直至返回到main()函数。</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">/*分鱼递归函数*/</span><br><span class="line">int fish(int n, int x)</span><br><span class="line">&#123;</span><br><span class="line">    if((x-1)%5 == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n == 1)</span><br><span class="line">            return 1;  /*递归出口*/</span><br><span class="line">        else</span><br><span class="line">            return fish(n-1, (x-1)/5*4);  /*递归调用*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;  /*x不是符合题意的解，返回0*/</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, flag=0, x;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        i=i+1;</span><br><span class="line">        x=i*5+1;  /*x最小值为6，以后每次增加5*/</span><br><span class="line">        if(fish(5, x))  /*将x传入分鱼递归函数进行检验*/</span><br><span class="line">        &#123;</span><br><span class="line">            flag=1;  /*找到第一个符合题意的x则置标志位为1*/</span><br><span class="line">            printf(&quot;五个人合伙捕到的鱼总数为%d\n&quot;, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!flag);  /*未找到符合题意的x，继续循环，否则退出循环*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h2 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h2><pre><code>大家好，我叫高彦涛，高大上的高，彦青的彦，波涛的涛，大家可能还不知道彦青是谁，可以去看看水浒传，里面那个最擅长摔跤的
+帅小伙就是彦青，我叫什么不重要，只要知道我姓高就好。我是一个程序员，按真实的编程年龄来算因该是8年程序员，工作经历
+比较单一，毕业后就去过两家公司，一个是电子信息公司，一个是大数据分析的互联网公司，离开的时候年薪20多万，算是一个小
+小的资深程序员。好了，关于我不多说，我们接下来说说我们的课程，这个可是和大家息息相关的。</code></pre><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><pre><code>我们这是一门关于编程的课，不着急开始讲课，我们先聊聊生活中的计算机程序。让大家了解一下这门课程。
+其实我们每天都在使用计算机，那我们实际上使用的是计算机的什么呢？大家都来说一下。
+实际上我们使用的就是计算机的程序。
+
+一，我们去超市买东西，超市的收银员在使用收银程序，收取费用，并且找零，这就是在使用计算机程序。对，现在收钱的不多了，因为有了支付宝，和微信，这
+更加展示了计算机程序在我们身边的普遍性。
+二，我们去银行取钱，银行的工作人员通过计算机程序查询我们的余额。这也是在使用程序
+三，我们打游戏，这个最经典，现在社会，哪里有孩子不会玩游戏呢？你们觉得我们玩游戏玩的是什么？是小人吗？控制这一个小人拿着武器
+杀来杀去？还是我的动画，别人把动画做好了，我们就在那里看着炫酷的画面爽呢？其实都不是，游戏就是计算机的程序，这里面的每一个动作，
+每一次击杀，每一次复活都离不开程序的控制，如果你理解了计算机程序，就会发现，其实游戏世界一点都不神秘，就是你告诉计算机，让小人走一步，
+它就控制小人走一步，步子迈大了连起来，就是跑了。
+
+这就是我们生活中接触到的程序，是不是感觉挺有趣的，其实程序是很简单的，你了解了程序，就能更好的使用计算机，使用生活中的各种
+只能设备。也可以给你的生活带来一些乐趣。我们这门课呢就是学习，那些程序是如何被写出来的课。
+
+大家对编程可能还没有接触过，有没有什么疑问啊？</code></pre><h3 id="为什么要学习编程呢？"><a href="#为什么要学习编程呢？" class="headerlink" title="为什么要学习编程呢？"></a>为什么要学习编程呢？</h3><pre><code>未来是人工智能的时代，现在的科技发展十分迅猛，无数重复而又繁琐的工作已经被人工智能化的机器所替代，
+现下比较流行的小米音箱可以控制你家里的台灯，电器，以及各种智能设备。你可以不菲吹灰之力，只需要和你的
+音箱说一声就可以打开空调，电视机等，是不是很神奇，它们已经变的无所不能。2016年的智能机器人AlphaGo
+不费吹灰之力就连续战胜了世界上最强的围棋选手，也进一步证明了他们的实力，前段时间中国以一个智能商城
+由万达和腾讯共同建成使用。未来，我们身边将到处都是他们的身影。他们不知疲倦，还能自主学习。那么作为人类，
+我们应当如何同他们交流，通过控制他们来让他们称为我们的左膀右臂呢？这就要通过编程来实现啦！
+
+讲到这里大家也就明白了，编程就是我们和机器交流的语言啦，就像我们说的中文和英文一样，和机器交流就要
+使用编程语言。
+
+那我们学习的目标也就很明确了，未来的世界里将到处都是人工智能，那你的身体里也有可能会有智能心脏，
+智能手臂什么的，那如果你不会编程，你怎么和机器去交流呢？如果比人会了，而你不会，那别人可就比你
+强大很多倍了，那你在未来还有什么能力和他们竞争呢？不就被社会所淘汰了吗？
+
+那个时代可能还有点远，但是科技发展的速度是飞速的，有句话说的好，宁早不完，不能输在起跑线上。
+
+来看一下别的小朋友的例子，他们就很厉害了，
+这个小女孩叫Emma Yang的小女孩，她从6岁就开始学编程了，为了帮助由阿尔兹海默症的奶奶，10岁那年
+她写了自己的第一个app，Timeless来帮助她的奶奶，这个可是世界上第一款帮助老年痴呆患者生活的软件。
+
+这个叫做Yuma的小男孩，来自澳大利亚墨尔本，是苹果2017年WWDC最年轻的开发者，他只有10岁，到现在也应该才
+12岁，也是从6岁就开始学习编程的。目前已经设计了5款app了，
+
+在我国已经开始推行小学生编程课，未来编程也将作为高考课程进入我们的生活，浙江省已经开始了试点。
+
+学习编程可以做些什么呢？
+学习编程之后，同学们可以自己开发各种想要的工具，就像前面的两个小朋友一样，编程可以制作自己喜欢的
+动画，动漫，音乐，游戏，同时等你们以后工作了，还可以和金融，医疗，法律，科研，贸易等各方面相结合。
+其实如果你工作了，你不会这些都没事，因为如果你只会编程，一样可以得到自己的喜欢的工作和拿到属于你
+价值的薪水。比如现在很火的区块链还有股票，都是通过编程完成交易和买卖的。
+
+好啦，说到这里基本上你应该了解了编程的重要性了吧？接下来我们说说编程需要点什么呢？</code></pre><h3 id="学习编程需要什么？"><a href="#学习编程需要什么？" class="headerlink" title="学习编程需要什么？"></a>学习编程需要什么？</h3><pre><code>那学习编程究竟需要什么呢？需要一点好奇心，不对这个世界好奇，那学习就没了乐趣对不对？需要一点逻辑思维能力，这个可以学习，我
+会在讲述的过程中，把问题一点一点剖析出来，给你建立一个编程的逻辑思维，还有什么呢？还需要一点创造力，编程要解决的问题都是
+一些具有挑战性的问题，比如你想写一个自己的计算机，有没有挑战性？这都不是问题，想要学好编程，需要一点耐心，塌实住，你学到的
+东西会很有价值。</code></pre><h3 id="计算机和编程语言"><a href="#计算机和编程语言" class="headerlink" title="计算机和编程语言"></a>计算机和编程语言</h3><pre><code>好啦，从这里开始我们开始讲我们的第一课，前面说到了编程，其实编程呢，要从这两个的字面意思说起，编就是编写，程呢就是程序，
+连起来也就是编写程序，是不是很简单，你要是这么想，就错了，虽然看上去很简单，但是如果你不学习的话，永远也不会知道编程的世界
+有多么神奇。
+
+其实学习编程呢？就是通过学习程序理解计算机是怎么工作的？了解计算机是怎么解决你想要解决的问题的，比如说用用淘宝购买零食，
+你是动动手就搞定了，那计算机是怎么搞定这件事的呢？通过学习编程了解计算机擅长做什么样的事情，有没有它不擅长做的事情呢？
+肯定是有的，这个也是我们需要了解的东西。
+
+那么计算机是怎么解决问题的呢？比如说把大象放入冰箱这件事，如果你让你的同学去做你会怎么说呢？
+嗨：哥们，你去把大象放到冰箱里面去。
+于是这个哥们就跑去把大象放到冰箱里面了，但是你这么和计算机说不行啊。
+比如，你数，嗨，计算机，你给我把大象放到冰箱里面，你觉得他会做吗？这就像 你和试卷说？兄弟，能不能把题给我做一下呢？
+我想，没有东西会回到你，要是回答了，估计得吓坏人。
+所以，其实让计算机工作就和解题一样，你要一步一步的告诉它，然后它才能工作，就像这样
+1.把冰箱门打开
+2.把大象放进去
+3.把冰箱门关上
+经过这几步，大象就顺利的进入了冰箱里，成了待宰的羔羊，想什么时候吃都行了。
+
+通过这几部我们可以总结一下了：
+对人来说，我们让他做事的时候，我们会说“what to do？”，也就是对他说，让他去做什么事？
+对机器来说呢？就是“how to do？”，就是告诉它怎么做？
+区别是什么呢？谁知道？
+区别就是人可以理解你说的话，按照你的意思去做，而机器呢，不懂你的语言，所以，它只能是一步一步的去做，通过你的拆分，把
+行动细化，按照固定的方式，一步一步的完成任务。
+
+到这里，程序这个词的含义也就出来了。
+程序就是用固定的词汇和格式，组成计算机可以理解的编程语言，写出计算机解决问题的方法。
+
+在这里，有一个迷惑点，我们这样让计算机做事，算是和它交谈吗？
+其实不是的，交谈是指双方都能明白彼此的意思，这才是交谈，就像你和同学说一样，那是交谈，而我们让计算机做事可不是和计算机交谈
+
+我们不是用编程语言来和计算机交谈的，而是通过指令写出让计算机做事的方法和步骤，让计算机按照我们的
+想法和需求来运转。这个才是程序，
+
+这里我们涉及到了计算机能懂得语言，那究竟什么样的语言才是计算机能懂的语言呢？
+00|0F，
+这样的语言才是计算机能够理解的语言，是不是很惊讶，是不是很晕，因为你看不懂这些东西。
+这是计算机的语言，把这一段话转化成我们能懂的语言
+其实是这样的
+#include &lt;stdio.h&gt;
+int main(){
+    puts(&apos;请输出3+5的和&apos;，3+5);
+}
+这就是我们编程的语言，也是我们告诉计算记得语言，在这个的最上层还有一层
+
+【请计算一下3加5的和等于多少？】
+
+这个是我们人类交谈的语言。这三层其实就是编程的过程，想要使用计算机解决一个问题，我们要先分析这个问题
+然后拆成计算机能懂的语言，输入到程序，程序会把我们的编程语言翻译成计算机能懂得语言，最终解决我们想要
+计算机解决的问题，也就是计算出3+5的和，并输出到电脑上给你看。
+
+到这里我们就明白了编程是什么了吧？
+编程就是把我们的能懂的语言，翻译成计算机的语言，最终计算机按照我们的指令，解决我们想要解决的问题，这个
+翻译的过程就叫做编程。</code></pre><h3 id="选择c语言的目的"><a href="#选择c语言的目的" class="headerlink" title="选择c语言的目的"></a>选择c语言的目的</h3><pre><code>为什么要选择C语言呢？这里有一个有趣的故事，我们先从这个故事开启。
+20世界60年的的时候，贝尔实验室的肯·汤普森，突然间有一天心血来潮想要玩游戏，所以他就用当时的使用的编程语言B制作了
+一个游戏，叫做“space travl”，写完这个游戏之后他发现现有的系统没办法安装并且玩这个游戏，于是，他就瞒着自己的老板，
+偷偷的使用了一台计算机PDP-7，这台计算机并没有操作系统，于是汤普森开始为它编写系统，这个OS被命名为UNIX，也就是现在
+操作系统的源头
+
+到了1971年，汤普森的同时，DM里奇看到他这个游戏了，于是也起了玩心，也想玩这个游戏，于是他就加入了汤普森，两个人合伙
+开发UNIX系统，这个过程中，他们发现，用B语言编程并不符合他们的要求，所以就着手改进B语言，最终，在1972年这个新语言
+被称为C，取BCPL的第二个字母，也是B的下一个字母。
+
+到了1973年，他们终于完成了对C语言的改进！这个时候他们发现玩游戏还有什么意思，远远不如编程来的让人心动，于是在这个
+欲望的驱使下，他们迫不及待的用C语言重写了UNIX系统，一直到今天，C与UNIX系统的配合都亲密无间
+
+windows和苹果OS还有其他的系统，都是最初脱胎于UNIX，可以说UNIX就是这些系统的祖先。而C语言就是现在那些高级语言的
+根源。
+
+是不是瞬间感觉c语言很厉害，很高大上，这还没完呢？我们继续看一下C语言在所有编程语言里面的排名情况</code></pre><h3 id="C语言的特点"><a href="#C语言的特点" class="headerlink" title="C语言的特点"></a>C语言的特点</h3><pre><code>1.结构化的设计语言
+    结构清晰，便于按模块化的方式组织程序，便于调试和维护
+2.语言简洁
+    适合作为入门语言，使用灵活方便
+3.可移植性好
+    c语言80%的代码都是公共的，方便移植
+4.功能强大
+    既适合编写系统软件开发，也适合应用软件的开发。</code></pre><h3 id="c的单片机编程与生活息息相关"><a href="#c的单片机编程与生活息息相关" class="headerlink" title="c的单片机编程与生活息息相关"></a>c的单片机编程与生活息息相关</h3><pre><code>有人会问，单片机是什么啊？我们这里不过多讲述，举几个实际的例子，
+1.流水灯的效果（汽车的转向灯控制）这是单片机实现的
+2.空调的控制系统 这也是单片机实现
+3.热水器的控制系统 这还是单片机实现的
+等等这些东西
+
+都与单片机嘻嘻相关，有的人会问了，这和C语言有关系吗？有的，我们使用空调是不是程序在控制空调的运转？
+不说插上电就走的昂，那样的太不智能了，以后注定要被淘汰的。热水器也是程序控制着运转的，水温达到多少度
+就不再运转了，这些都与单片机和程序脱不开关系，如果你想了解电脑是怎么运作的，你首先要了解程序，如果你想了解
+交通灯的时间是不是可以随机调整，那么你也要了解程序。在我国的山东，少儿编程已经作为课程进入了一部分孩子的
+学习，成人编程的培训更是遍地都是，所以，如果你想学编程，那么开始学习吧，少年，这个社会需要的人才是知识面
+更广的，能够提高工作效率的人才，提升自己，从学习编程开始。</code></pre><h3 id="课程目的"><a href="#课程目的" class="headerlink" title="课程目的"></a>课程目的</h3>
             </div>
             <hr/>
 
@@ -571,9 +707,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C语言递归解决分鱼问题》
+                    《通俗版第一课》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/c语言/C语言递归解决分鱼问题/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/07/课程/通俗版第一课/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> is licensed under a
@@ -617,24 +753,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/09/04/c语言/c语言递归解决年龄问题/">
+                <a href="/2019/09/08/课程/课程大纲/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="c语言递归解决年龄问题">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="课程大纲">
                         
-                        <span class="card-title">c语言递归解决年龄问题</span>
+                        <span class="card-title">课程大纲</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            问题描述有5个人坐在一起，问第5个人多少岁，他说比第4个人大2岁。问第4个人多少岁，他说比第3个人大2岁。问第3人多少岁，他说比第2个人大2岁。问第2个人多少岁，他说比第1个人大2岁。最后问第1个人，他说他是10岁。编写程序，当输入第几个人
+                            1.课程分布1-10节：c语言基础课（看情况适当调整）2-20节：单片机编程课20-24节：项目实践课
+1节：IDE的安装和hello world初版2节：hello world动画版（开心的制作）2.1 算法3节：变量（变量的定义和赋值）
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-08
                         </span>
                         <span class="publish-author">
                             
@@ -643,6 +780,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/教学/" target="_blank">
+                        <span class="chip bg-color">教学</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -654,25 +799,27 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/03/课程/变量/">
+                <a href="/2019/09/07/课程/IDE和helloWorld/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="变量、数据类型及运算符">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="IDE和helloWorld">
                         
-                        <span class="card-title">变量、数据类型及运算符</span>
+                        <span class="card-title">IDE和helloWorld</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编译和执行这里只做简单的介绍
-编译把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&apos;.obj&apos;连接将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最
+                            IDE的选择（初学者的困惑）1.用什么软件比较好，选择一个适合自己并且适合机器的东西
+2.当代语言往往只有一个可用的软件。
+3.一起使用keil吧！为了未来更好的结合嵌入式的单片机开发
+4.keil安装链接为什么要选择IDE呢？1.使用记事
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
                             </span>
                         <span class="publish-author">
                             

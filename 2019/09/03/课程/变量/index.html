@@ -4,9 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="变量, Hexo">
-    <meta name="description" content="## 
-">
+    <meta name="keywords" content="变量、数据类型及运算符, Hexo">
+    <meta name="description" content="编译和执行这里只做简单的介绍
+编译把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&amp;apos;.obj&amp;apos;连接将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -14,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>变量 | Hexo</title>
+    <title>变量、数据类型及运算符 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -261,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        变量
+                        变量、数据类型及运算符
                     </div>
                 </div>
             </div>
@@ -409,7 +409,34 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>## </p>
+                <h2 id="编译和执行"><a href="#编译和执行" class="headerlink" title="编译和执行"></a>编译和执行</h2><p>这里只做简单的介绍</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code>把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&apos;.obj&apos;</code></pre><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><pre><code>将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最终的可执行代码
+注意：最终可执行程序代码指的是经过编译程序最终翻译成的机器语言，也就是机器可以按照步骤执行你的指令了。</code></pre><h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><pre><code>在特定的机器环境下执行可执行程序
+注意：为什么要是特定的环境呢？这个就是房子一样，大的适合大人住，小屋子适合小孩住，写程序的目的就是
+    解决某种环境下的某个问题，比如你现在要计算自己的体重值多少钱，那肯定是按照现在的环境去写程序的，
+    你说等明年了，你再拿着现在的程序去计算，是不是就不恰当了，所以强调了一下特定机器环境。这里以后我们
+    会逐步深入讲解，现在你只需要有所了解即可，到了单片机的阶段，就会更清晰，更明白。</code></pre><h2 id="课程流程"><a href="#课程流程" class="headerlink" title="课程流程"></a>课程流程</h2><p>1.变量和常量的定义<br>2.变量和常量分别是什么？</p>
+<p>先写一个小程序来理解变量是什么？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    const name = &quot;richa&quot;</span><br><span class="line">    int num = 10;</span><br><span class="line">    printf(&quot;有请 %s 输出数字 num %d&quot;, name, num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>是不是很有意思，我们通过手写一个程序，就可以计算出你未来可能的身高了，很兴奋吧？试着计算计算你自己未来会长多高，也可以看看<br>弟弟或者妹妹未来有多高，当然了这只是一个参考，别太当真了昂。</p>
+<p>这里的num是什么呢？这个就是我们今天的重点了，</p>
+<h2 id="变量与常量数据解析"><a href="#变量与常量数据解析" class="headerlink" title="变量与常量数据解析"></a>变量与常量数据解析</h2><p>在程序的指导下，程序可以做很多的事情，如数值计算，名字排序，执行语言或视频命令，计算彗星轨道，准备邮件列表，拨打电话号码，画画，做决策或者<br>是你能想到的其他事情。想要完成这些任务，程序需要使用数据，即承载信息的数字或者字符。有些数据类型在程序使用之前就已经预设好了，在程序的<br>整个运行过程中都不会变化，这些称为常量（constant）。其他的数据类型在程序的运行过程中可能会改变或者赋值，这些称为变量（variable）。<br>比如3.1414926，这就是一个常量，比如weight，这就是一个变量。在比如1700，这个是一个变量还是常量呢？白金的价格在实际生活中是一只变得，<br>但是在这里它只是一个确定的值，所以这也是一个常量！</p>
+<p>常量就像是你买好的房子，只属于你自己，能住的就是你<br>变量就像是租来的房子，房子虽然不会变，但是当你一段时间打开房子的时候就会发现，总是有不同的人住进去了！</p>
+<p>在上面的例子里面我们定义了<br>const name = “richa”<br>int num  = 10<br>这里的房子也就是变量就分别叫做name和num，他们的值呢？其实就分别是richa和10.<br>这个就叫做变量的定义。<br>也就是在计算机中开辟一块特定的内存空间，这个就是定义课一个变量，那如果定义十个空间怎么办呢？我们也分不清<br>十个空间都是什么，因为他们都是一样的，对的，就是给他们一个名字，每个不同的名字标志一个空间，这样我们就可以<br>找到自己的家了对吧？</p>
+<p>赋值也就是让这个空间有了住户，就是把数据放进到空间中，比如 num = 10，这句话就是把10放入num的空间里</p>
+<h2 id="变量命名规则"><a href="#变量命名规则" class="headerlink" title="变量命名规则"></a>变量命名规则</h2><p>给变量命名时要注意使用有意义的变量名和标识符（例如程序中需要使用变量来计算年龄，这个时候你就要使用age，如果在具体一点，说<br>小狗的年龄，就是dog_age，而不是使用x1什么鬼的东西来表示）这里实际上有一个规则，在变量名中只能出现数字，字母，下划线等，并且<br>数字不能位于开头的位置，例如 3dog，这个就是一个错误的变量，我们可以实验一下。</p>
+<p>变量名是区分大小写的，有的人会问，怎么区分？其实是这样的，Dog_age和dog_age就是两个变量名了。</p>
+<p>变量名最好使用具有语义话的变量名，例如dog_age</p>
+<p>1.c语言规定变量名只能由字母、数字、下划线3种字符组成。<br>2.变量名的首字母只能是字母或者下划线，不能是数字类型。<br>3.变量名的其他字母可以是下划线，数字和字母。<br>4.不能使用关键字（保留字）一共32个，只是稍微统计，现在更多增加了。</p>
+<h3 id="正确的变量名"><a href="#正确的变量名" class="headerlink" title="正确的变量名"></a>正确的变量名</h3><pre><code>dog_age, _age_dog, dog_age202</code></pre><h3 id="错误的变量名"><a href="#错误的变量名" class="headerlink" title="错误的变量名"></a>错误的变量名</h3><pre><code>3dog_age 6_pig Cat! </code></pre><p>还有必须记得，编写程序的时候尽量不要用中文，要是说不会英文，容易，找一个你明白的翻译，也比中文靠谱。<br>你打中文字的时候太容易引起程序错误了。 </p>
+<p>这就和咱们古代封建社会时期起名字一样，那会皇帝的名字，别人是都不能带着字的，比如说爱新觉罗·玄烨。<br>他是皇帝，你总也不能叫玄烨吧，会被来出去杀头的。这个关键字就相当于皇帝的名字，你在程序里面是不能<br>用的。</p>
+<p>这就相当于注册公司，马云的公司叫阿里巴巴，你说我的也叫阿里巴巴，完了，人家告了你了，说你侵权，你又得<br>赔钱，还得改名，倒霉吧，所以变量的关键字就相当于以经注册了的商标，你不能用了，别的你随便，凡是C语言<br>大神注册了的，你就不能用了。</p>
+<h1 id="这里应当插入一下数据类型的解说。"><a href="#这里应当插入一下数据类型的解说。" class="headerlink" title="这里应当插入一下数据类型的解说。"></a>这里应当插入一下数据类型的解说。</h1><p>C语言的数据类型 -&gt; 数值型和非数值型<br>数值型 -&gt; 整型和浮点型<br>整型   -&gt; int，long，short<br>浮点型 -&gt; float， double</p>
+<p>非数值型 -&gt; char</p>
+<p>这些的取值范围可以忽略，我们主要的记住两种类型，int和double，其他的类型使用的不是很多，有兴趣的<br>人可以自己去研究一下<br>int类型就是我们常用到的整数，包括正整数，0，负整数。<br>double类型就是我们通常所说的小数，可以计算到小数点后</p>
+<h1 id="生命和使用变量"><a href="#生命和使用变量" class="headerlink" title="生命和使用变量"></a>生命和使用变量</h1><h4 id="声明变量"><a href="#声明变量" class="headerlink" title="声明变量"></a>声明变量</h4><pre><code>DataType varibaleName               数据类型  变量名</code></pre><h4 id="定义时初始化变量"><a href="#定义时初始化变量" class="headerlink" title="定义时初始化变量"></a>定义时初始化变量</h4><pre><code>DataType varibaleName = value       数据类型  变量名 = 值</code></pre><h4 id="定义后初始化变量"><a href="#定义后初始化变量" class="headerlink" title="定义后初始化变量"></a>定义后初始化变量</h4><pre><code>DataType varibaleName               数据类型  变量名
+varibaleName = value                变量名 = 值</code></pre><h3 id="实例引导学生去学习变量"><a href="#实例引导学生去学习变量" class="headerlink" title="实例引导学生去学习变量"></a>实例引导学生去学习变量</h3><p>1.定义变量之前先要考虑，变量的使用什么类型的数据？<br>2.变量应该使用什么样的名称？</p>
 
             </div>
             <hr/>
@@ -568,7 +595,7 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《变量》
+                    《变量、数据类型及运算符》
                 </span> by
             <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/03/课程/变量/" property="cc:attributionName"
                rel="cc:attributionURL">

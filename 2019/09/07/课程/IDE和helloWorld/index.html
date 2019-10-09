@@ -4,8 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C语言递归解决分鱼问题, Hexo">
-    <meta name="description" content="问题描述A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了">
+    <meta name="keywords" content="IDE和helloWorld, Hexo">
+    <meta name="description" content="IDE的选择（初学者的困惑）1.用什么软件比较好，选择一个适合自己并且适合机器的东西
+2.当代语言往往只有一个可用的软件。
+3.一起使用keil吧！为了未来更好的结合嵌入式的单片机开发
+4.keil安装链接为什么要选择IDE呢？1.使用记事">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C语言递归解决分鱼问题 | Hexo</title>
+    <title>IDE和helloWorld | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +263,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C语言递归解决分鱼问题
+                        IDE和helloWorld
                     </div>
                 </div>
             </div>
@@ -375,9 +378,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/教学/" target="_blank">
+                                <span class="chip bg-color">教学</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -388,7 +395,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-04
+                    2019-09-07
                 </div>
 
                 
@@ -404,16 +411,32 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了一份鱼，于是他将剩下的鱼平分为5份，扔掉多余的一条，然后只拿走了自己的一份；接着C、D、E依次醒来，也都按同样的办法分鱼。问这5人至少合伙捕到多少条鱼？每个人醒来后所看到的鱼是多少条？</p>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>假设5个人合伙捕了x条鱼，则“A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了”之后，还剩下4(x-1)/5条鱼。</p>
-<p>这里实际包含了一个隐含条件：假设Xn为第n(n=1、2、3、4、5)个人分鱼前鱼的总数，则(Xn-1)/5必须为正整数，否则不合题意。（Xn-1)/5为正整数即(X〜l)mod5=0必须成立。</p>
-<p>又根据题意，应该有下面等式：<br>X4=4(X5-1)/5<br>X3=4(X4-1)/5<br>X2-4(X3-1)/5<br>X1=4(X2-1)/5</p>
-<p>则一旦给定X5，就可以依次推算出X4、X3、X2和X1的值。要保证X5、X4、X3、X2和X1都满足条件(Xn-1)mod5=0，此时的X5则为5个人合伙捕到的鱼的总条数。显然，5个人合伙可能捕到的鱼的条数并不唯一，但题目中强调了 “至少”合伙捕到的鱼，此时题目的答案唯一。该问题可使用递归的方法求解。</p>
-<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><p>在main()函数中构建一个不定次数的do-while循环。定义变量x表示5个人合伙可能捕到的鱼的条数，可以取x的最小值为6，让x值逐渐增加，x每一次取值，都增加5，直到找到一个符合问题要求的答案。由于题目中问“这5人至少合伙捕到多少条鱼”，而我找到的第一个x值就是5个人至少捕到的鱼的总条数。</p>
-<p>通过这个循环，就可以对每一个的可能情况进行检查。当然，是通过调用分鱼的递归函数来进行检查的。</p>
-<p>分鱼的递归函数如下：<br>fish()函数中包含了两个参数：n和x。n表示参与分鱼的人数，x表示n个人分鱼前鱼的总条数。这两个参数都是由main()函数中传递进来的。</p>
-<p>根据前面的分析，当n=5时，(x-1)mod5==0必须成立，否则该x值不是满足题意的值，退出fish()函数，返回到main()函数，main()函数中再传递新的x值到fish中进行检验。如果(x-1)mod5==0条件成立，则要判断n=4时，(x-1)mod5=0条件是否成立，需要注意的是，此时的形参x是4个人分鱼前鱼的总条数，即f(5,x)递归调用f(4,(x-1)/5*4)。这样依次进行下去，直到n=1时，(x-1)mod5==0条件仍成立，则说明开始从main()函数中传递进来的x值是符合题意要求的一个值，可以逐层从递归函数中返回，每次返回值都为1，直至返回到main()函数。</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">/*分鱼递归函数*/</span><br><span class="line">int fish(int n, int x)</span><br><span class="line">&#123;</span><br><span class="line">    if((x-1)%5 == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n == 1)</span><br><span class="line">            return 1;  /*递归出口*/</span><br><span class="line">        else</span><br><span class="line">            return fish(n-1, (x-1)/5*4);  /*递归调用*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;  /*x不是符合题意的解，返回0*/</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, flag=0, x;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        i=i+1;</span><br><span class="line">        x=i*5+1;  /*x最小值为6，以后每次增加5*/</span><br><span class="line">        if(fish(5, x))  /*将x传入分鱼递归函数进行检验*/</span><br><span class="line">        &#123;</span><br><span class="line">            flag=1;  /*找到第一个符合题意的x则置标志位为1*/</span><br><span class="line">            printf(&quot;五个人合伙捕到的鱼总数为%d\n&quot;, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!flag);  /*未找到符合题意的x，继续循环，否则退出循环*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h2 id="IDE的选择（初学者的困惑）"><a href="#IDE的选择（初学者的困惑）" class="headerlink" title="IDE的选择（初学者的困惑）"></a>IDE的选择（初学者的困惑）</h2><pre><code>1.用什么软件比较好，选择一个适合自己并且适合机器的东西
+2.当代语言往往只有一个可用的软件。
+3.一起使用keil吧！为了未来更好的结合嵌入式的单片机开发
+4.keil安装链接</code></pre><h2 id="为什么要选择IDE呢？"><a href="#为什么要选择IDE呢？" class="headerlink" title="为什么要选择IDE呢？"></a>为什么要选择IDE呢？</h2><p>1.使用记事本的时代<br>使用记事本写一个hello，word<br>2.使用IDE的好处<br>使用IDE写一个hello world</p>
+<p>两个做比较实验一下<br>记事本，<br>1.读写不方便<br>2.容易出现语法错误<br>3.没有补全的效果（这个是好处也是坏处）</p>
+<p>IDE<br>1.读写操作很方便<br>2.不容易出现语法的错误，一但出现错误，会有错误提醒标识<br>3.拥有补全的效果。<br>4.结构代码清晰，可以分颜色展示，容易理解词汇的用途</p>
+<h2 id="第一个c程序"><a href="#第一个c程序" class="headerlink" title="第一个c程序"></a>第一个c程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">    printf(&apos;hello, world&apos;);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个时候我们看看是怎么编译和链接的，看一下我们的输出内容</p>
+<h2 id="程序的框架"><a href="#程序的框架" class="headerlink" title="程序的框架"></a>程序的框架</h2><p>头文件 #include &lt;stdio.h&gt;<br>1.以#开头语句称为预处理指令<br>2.#include在程序中并不是必须的，但是一单存在，那么必须放在程序的开使处</p>
+<p>stdio实际上使 standared input output header的缩写<br>             标准       输入  输出<br>header是header的缩写，也就是头的意思，这里标识头文件。</p>
+<p>整体的翻译也就是“预处理包含-&gt;标准的输入输出头文件”</p>
+<p>输入其实就是我们通过程序赋予程序的东西<br>输出呢其实就是程序的输出结果，我们看到的东西</p>
+<p>例如对于这个电脑来讲，我们用键盘打字，你把c输入到电脑里面了。这就叫输入<br>这时候呢？你看到屏幕上出现了一个C，这就叫输出，屏幕输出了C。</p>
+<p>也就是说，一道数学题，比如1 + 1 = ？<br>这里1 + 1就叫做输入<br>2是所得的结果，这个就叫做输出。</p>
+<p>主函数<br>int main(){<br>    return 0;<br>}</p>
+<p>1.main函数是程序的起点/入口。<br>  其中的return是返回的意思.也就是程序的输出<br>  main函数可以返回一个值，也可以没有返回值。如果这个函数没有返回值，那么前面的int就可以替换为void！</p>
+<p>  尽量不要用void的形式，这个方式有的编译器不支持，有可能出错，尽量用int return 0的方式就好了。</p>
+<p>2.printf(‘hello, world’)的作用是在屏幕上打印一行文字：”hello world！”并且换行“\n”<br>  最后的分号表示语句结束，注意不要使用中文符号。</p>
+<p>注意：C程序中的一句话可以跨行运行，并且用分号通知编译器该语句已结束。</p>
+<p>注意在 int main{<br>    这里是我们之后的重点位置<br>    return 0<br>}<br>1.课程所有目前需要的东西都是有着一段作为模版生成的。<br>2.直到我们学习函数之前，我们代码执行片段都只需要在这中间展示</p>
+<p>我们以后所有的东西都是在这中间去写的。</p>
+<h2 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h2><p>无规矩不成方圆<br>1.大括号必须有并且要单起一行<br>2.缩紧的你要行<br>3.注释，为什么要添加注释呢？<br>单行注释 //<br>多行注释<br>/<strong>***<br>**</strong>/</p>
+<h2 id="编译和连接、执行"><a href="#编译和连接、执行" class="headerlink" title="编译和连接、执行"></a>编译和连接、执行</h2><p>1.编译<br>形成目标代码/文件。目标代码是编译器的输出结果</p>
+<p>现在写的是我们能懂的语言，编译器是什么呢？就是计算内置的一套翻译程序，他会把我们共同能懂的编程语言，<br>翻译成计算机能懂的语言，这个过程就叫做编译。</p>
+
             </div>
             <hr/>
 
@@ -571,9 +594,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C语言递归解决分鱼问题》
+                    《IDE和helloWorld》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/c语言/C语言递归解决分鱼问题/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/07/课程/IDE和helloWorld/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> is licensed under a
@@ -617,63 +640,26 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/09/04/c语言/c语言递归解决年龄问题/">
+                <a href="/2019/09/07/课程/通俗版第一课/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="c语言递归解决年龄问题">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="通俗版第一课">
                         
-                        <span class="card-title">c语言递归解决年龄问题</span>
+                        <span class="card-title">通俗版第一课</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            问题描述有5个人坐在一起，问第5个人多少岁，他说比第4个人大2岁。问第4个人多少岁，他说比第3个人大2岁。问第3人多少岁，他说比第2个人大2岁。问第2个人多少岁，他说比第1个人大2岁。最后问第1个人，他说他是10岁。编写程序，当输入第几个人
+                            自我介绍大家好，我叫高彦涛，高大上的高，彦青的彦，波涛的涛，大家可能还不知道彦青是谁，可以去看看水浒传，里面那个最擅长摔跤的
+帅小伙就是彦青，我叫什么不重要，只要知道我姓高就好。我是一个程序员，按真实的编程年龄来算因该是8年程序员，工作经历
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-07
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            John Doe
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/09/03/课程/变量/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="变量、数据类型及运算符">
-                        
-                        <span class="card-title">变量、数据类型及运算符</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            编译和执行这里只做简单的介绍
-编译把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&apos;.obj&apos;连接将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-user fa-fw"></i>
@@ -689,6 +675,45 @@
                         <span class="chip bg-color">教学</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/04/c语言/C语言在字符串的指定位置插入字符/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="C语言在字符串的指定位置插入字符">
+                        
+                        <span class="card-title">C语言在字符串的指定位置插入字符</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            问题描述请编写程序，实现以下功能：在字符串中的所有数字字符前加一个$字符。例如，输入 A1B23CD45，输出 A$1B$2$3CD$4$5。
+问题分析在字符串S的所有数字字符前加一个$字符，可以有两种实现方法。
+方法一：用串S拷贝出另一个
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>

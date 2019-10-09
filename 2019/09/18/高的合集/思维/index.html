@@ -4,8 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="C语言递归解决分鱼问题, Hexo">
-    <meta name="description" content="问题描述A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了">
+    <meta name="keywords" content="思维, Hexo">
+    <meta name="description" content="策略1.客户需要的到底是什么？2.我能给的是什么？3.技术层面上我们有多少需要补充？4.暂时不需要关心我c语言的水平到了哪一步！5.课程是不是很难呢？多看多写多总结出来所有的课程
+利用这一周的时间把所有的课程归纳总结完成，写20个课程中需要">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>C语言递归解决分鱼问题 | Hexo</title>
+    <title>思维 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        C语言递归解决分鱼问题
+                        思维
                     </div>
                 </div>
             </div>
@@ -375,9 +376,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/思维/" target="_blank">
+                                <span class="chip bg-color">思维</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -388,7 +393,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-09-04
+                    2019-09-18
                 </div>
 
                 
@@ -404,16 +409,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>A、B、C、D、E这5个人合伙夜间捕鱼，凌晨时都已经疲惫不堪，于是各自在河边的树丛中找地方睡着了。第二天日上三竿时，A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了；B第二个醒来，但不知道A已经拿走了一份鱼，于是他将剩下的鱼平分为5份，扔掉多余的一条，然后只拿走了自己的一份；接着C、D、E依次醒来，也都按同样的办法分鱼。问这5人至少合伙捕到多少条鱼？每个人醒来后所看到的鱼是多少条？</p>
-<h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>假设5个人合伙捕了x条鱼，则“A第一个醒来，他将鱼平分为5份，把多余的一条扔回河中，然后拿着自己的一份回家去了”之后，还剩下4(x-1)/5条鱼。</p>
-<p>这里实际包含了一个隐含条件：假设Xn为第n(n=1、2、3、4、5)个人分鱼前鱼的总数，则(Xn-1)/5必须为正整数，否则不合题意。（Xn-1)/5为正整数即(X〜l)mod5=0必须成立。</p>
-<p>又根据题意，应该有下面等式：<br>X4=4(X5-1)/5<br>X3=4(X4-1)/5<br>X2-4(X3-1)/5<br>X1=4(X2-1)/5</p>
-<p>则一旦给定X5，就可以依次推算出X4、X3、X2和X1的值。要保证X5、X4、X3、X2和X1都满足条件(Xn-1)mod5=0，此时的X5则为5个人合伙捕到的鱼的总条数。显然，5个人合伙可能捕到的鱼的条数并不唯一，但题目中强调了 “至少”合伙捕到的鱼，此时题目的答案唯一。该问题可使用递归的方法求解。</p>
-<h2 id="程序设计"><a href="#程序设计" class="headerlink" title="程序设计"></a>程序设计</h2><p>在main()函数中构建一个不定次数的do-while循环。定义变量x表示5个人合伙可能捕到的鱼的条数，可以取x的最小值为6，让x值逐渐增加，x每一次取值，都增加5，直到找到一个符合问题要求的答案。由于题目中问“这5人至少合伙捕到多少条鱼”，而我找到的第一个x值就是5个人至少捕到的鱼的总条数。</p>
-<p>通过这个循环，就可以对每一个的可能情况进行检查。当然，是通过调用分鱼的递归函数来进行检查的。</p>
-<p>分鱼的递归函数如下：<br>fish()函数中包含了两个参数：n和x。n表示参与分鱼的人数，x表示n个人分鱼前鱼的总条数。这两个参数都是由main()函数中传递进来的。</p>
-<p>根据前面的分析，当n=5时，(x-1)mod5==0必须成立，否则该x值不是满足题意的值，退出fish()函数，返回到main()函数，main()函数中再传递新的x值到fish中进行检验。如果(x-1)mod5==0条件成立，则要判断n=4时，(x-1)mod5=0条件是否成立，需要注意的是，此时的形参x是4个人分鱼前鱼的总条数，即f(5,x)递归调用f(4,(x-1)/5*4)。这样依次进行下去，直到n=1时，(x-1)mod5==0条件仍成立，则说明开始从main()函数中传递进来的x值是符合题意要求的一个值，可以逐层从递归函数中返回，每次返回值都为1，直至返回到main()函数。</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">/*分鱼递归函数*/</span><br><span class="line">int fish(int n, int x)</span><br><span class="line">&#123;</span><br><span class="line">    if((x-1)%5 == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n == 1)</span><br><span class="line">            return 1;  /*递归出口*/</span><br><span class="line">        else</span><br><span class="line">            return fish(n-1, (x-1)/5*4);  /*递归调用*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;  /*x不是符合题意的解，返回0*/</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, flag=0, x;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        i=i+1;</span><br><span class="line">        x=i*5+1;  /*x最小值为6，以后每次增加5*/</span><br><span class="line">        if(fish(5, x))  /*将x传入分鱼递归函数进行检验*/</span><br><span class="line">        &#123;</span><br><span class="line">            flag=1;  /*找到第一个符合题意的x则置标志位为1*/</span><br><span class="line">            printf(&quot;五个人合伙捕到的鱼总数为%d\n&quot;, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!flag);  /*未找到符合题意的x，继续循环，否则退出循环*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h2 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h2><p>1.客户需要的到底是什么？<br>2.我能给的是什么？<br>3.技术层面上我们有多少需要补充？<br>4.暂时不需要关心我c语言的水平到了哪一步！<br>5.课程是不是很难呢？多看多写多总结出来所有的课程</p>
+<h2 id="利用这一周的时间把所有的课程归纳总结完成，写20个课程中需要的例子"><a href="#利用这一周的时间把所有的课程归纳总结完成，写20个课程中需要的例子" class="headerlink" title="利用这一周的时间把所有的课程归纳总结完成，写20个课程中需要的例子"></a>利用这一周的时间把所有的课程归纳总结完成，写20个课程中需要的例子</h2><h2 id="拆分例子，细节去讲问题。"><a href="#拆分例子，细节去讲问题。" class="headerlink" title="拆分例子，细节去讲问题。"></a>拆分例子，细节去讲问题。</h2><h1 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h1><h2 id="目前在这里能不能更好的组织这件事呢？"><a href="#目前在这里能不能更好的组织这件事呢？" class="headerlink" title="目前在这里能不能更好的组织这件事呢？"></a>目前在这里能不能更好的组织这件事呢？</h2><p>需要做完的东西，这里还有需要填充的东西。落实到课程里面的东西，到底有多少呢？</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>做事要有规律性，看透事物的本质。</p>
+<p>世界上不存在偶然的事情，所有的偶然都是一定有痕迹可循。</p>
+<p>做事情需要代入感。</p>
+<h2 id="招生"><a href="#招生" class="headerlink" title="招生"></a>招生</h2><p>公开课，—-&gt;网页形式还是自然形式</p>
+<p>留住学生，一定要好玩，有意思，还要有知识，这个就看一段段来整理了。</p>
+<p>C语言只需要判断和循环的小游戏。</p>
+<p>随机数，这个可不可以搞一下呢？初中生可以接受随机数的！回去实验一下。</p>
+<h2 id="20190922"><a href="#20190922" class="headerlink" title="20190922"></a>20190922</h2><p>1.变量<br>2.判断</p>
+
             </div>
             <hr/>
 
@@ -571,9 +577,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《C语言递归解决分鱼问题》
+                    《思维》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/04/c语言/C语言递归解决分鱼问题/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/18/高的合集/思维/" property="cc:attributionName"
                rel="cc:attributionURL">
                 John Doe
             </a> is licensed under a
@@ -617,24 +623,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/09/04/c语言/c语言递归解决年龄问题/">
+                <a href="/2019/09/21/高的合集/想法/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="c语言递归解决年龄问题">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="想法">
                         
-                        <span class="card-title">c语言递归解决年龄问题</span>
+                        <span class="card-title">想法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            问题描述有5个人坐在一起，问第5个人多少岁，他说比第4个人大2岁。问第4个人多少岁，他说比第3个人大2岁。问第3人多少岁，他说比第2个人大2岁。问第2个人多少岁，他说比第1个人大2岁。最后问第1个人，他说他是10岁。编写程序，当输入第几个人
+                            
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-04
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
                         </span>
                         <span class="publish-author">
                             
@@ -654,25 +660,25 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/09/03/课程/变量/">
+                <a href="/2019/09/08/课程/课程大纲/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="变量、数据类型及运算符">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="课程大纲">
                         
-                        <span class="card-title">变量、数据类型及运算符</span>
+                        <span class="card-title">课程大纲</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            编译和执行这里只做简单的介绍
-编译把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&apos;.obj&apos;连接将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最
+                            1.课程分布1-10节：c语言基础课（看情况适当调整）2-20节：单片机编程课20-24节：项目实践课
+1节：IDE的安装和hello world初版2节：hello world动画版（开心的制作）2.1 算法3节：变量（变量的定义和赋值）
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-03
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-08
                             </span>
                         <span class="publish-author">
                             
