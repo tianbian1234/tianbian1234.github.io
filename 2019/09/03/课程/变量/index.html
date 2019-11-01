@@ -5,8 +5,9 @@
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
     <meta name="keywords" content="变量、数据类型及运算符, Hexo">
-    <meta name="description" content="编译和执行这里只做简单的介绍
-编译把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&amp;apos;.obj&amp;apos;连接将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最">
+    <meta name="description" content="课程流程1.变量和常量的定义2.变量和常量分别是什么？
+先写一个小程序来理解变量是什么？
+1234567#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;    const name = &amp;quot;richa">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -409,13 +410,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="编译和执行"><a href="#编译和执行" class="headerlink" title="编译和执行"></a>编译和执行</h2><p>这里只做简单的介绍</p>
-<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre><code>把我们的源文件，经过初级翻译变成目标代码/文件，目标代码是编译器的输出结果，它拓展名一般为’.o‘或者&apos;.obj&apos;</code></pre><h3 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h3><pre><code>将目标代码和c函数库连接，并将源程序中的目标代码和库代码合并，形成最终的可执行代码
-注意：最终可执行程序代码指的是经过编译程序最终翻译成的机器语言，也就是机器可以按照步骤执行你的指令了。</code></pre><h3 id="执行"><a href="#执行" class="headerlink" title="执行"></a>执行</h3><pre><code>在特定的机器环境下执行可执行程序
-注意：为什么要是特定的环境呢？这个就是房子一样，大的适合大人住，小屋子适合小孩住，写程序的目的就是
-    解决某种环境下的某个问题，比如你现在要计算自己的体重值多少钱，那肯定是按照现在的环境去写程序的，
-    你说等明年了，你再拿着现在的程序去计算，是不是就不恰当了，所以强调了一下特定机器环境。这里以后我们
-    会逐步深入讲解，现在你只需要有所了解即可，到了单片机的阶段，就会更清晰，更明白。</code></pre><h2 id="课程流程"><a href="#课程流程" class="headerlink" title="课程流程"></a>课程流程</h2><p>1.变量和常量的定义<br>2.变量和常量分别是什么？</p>
+                <h2 id="课程流程"><a href="#课程流程" class="headerlink" title="课程流程"></a>课程流程</h2><p>1.变量和常量的定义<br>2.变量和常量分别是什么？</p>
 <p>先写一个小程序来理解变量是什么？</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    const name = &quot;richa&quot;</span><br><span class="line">    int num = 10;</span><br><span class="line">    printf(&quot;有请 %s 输出数字 num %d&quot;, name, num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 

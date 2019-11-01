@@ -410,7 +410,59 @@
             <div id="articleContent">
                 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=1; i&lt;=9; i++)&#123;  //外层for循环</span><br><span class="line">        for(j=1; j&lt;=i; j++)&#123;  //内层for循环</span><br><span class="line">            printf(&quot;%d*%d=%-2d  &quot;, i, j, i*j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><h2 id="跳出循环"><a href="#跳出循环" class="headerlink" title="跳出循环"></a>跳出循环</h2><h2 id="循环嵌套"><a href="#循环嵌套" class="headerlink" title="循环嵌套"></a>循环嵌套</h2><h2 id="对选择结构和循环结构的总结"><a href="#对选择结构和循环结构的总结" class="headerlink" title="对选择结构和循环结构的总结"></a>对选择结构和循环结构的总结</h2>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><p>在C语言中，共有三大常用的程序结构：<br>    顺序结构：代码从前往后执行，没有任何“拐弯抹角”；<br>    选择结构：也叫分支结构，重点要掌握 if else、switch 以及条件运算符；<br>    循环结构：重复执行同一段代码。</p>
+<p>前面讲解了顺序结构和选择结构，本节开始讲解循环结构。所谓循环（Loop），就是重复地执行同一段代码，例如要计算 1+2+3+……+99+100 的值，就要重复进行99次加法运算。</p>
+<p>while的一般形式为：<br>···<br>while(表达式){<br>    语句块<br>}<br>···<br>意思是，先计算“表达式”的值，当值为真（非0）时， 执行“语句块”；执行完“语句块”，再次计算表达式的值，如果为真，继续执行“语句块”……这个过程会一直重复，直到表达式的值为假（0），就退出循环，执行 while 后面的代码。</p>
+<p>我们通常将“表达式”称为循环条件，把“语句块”称为循环体，整个循环的过程就是不停判断循环条件、并执行循环体代码的过程。</p>
+<p>用 while 循环计算1加到100的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i=1, sum=0;</span><br><span class="line">    while(i&lt;=100)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br>5050</p>
+<p>代码分析：<br>1) 程序运行到 while 时，因为 i=1，i&lt;=100 成立，所以会执行循环体；执行结束后 i 的值变为 2，sum 的值变为 1。</p>
+<p>2) 接下来会继续判断 i&lt;=100是否成立，因为此时 i=2，i&lt;=100 成立，所以继续执行循环体；执行结束后 i 的值变为 3，sum 的值变为3。</p>
+<p>3) 重复执行步骤 2)。</p>
+<p>4) 当循环进行到第100次，i 的值变为 101，sum 的值变为5050；因为此时 i&lt;=100 不再成立，所以就退出循环，不再执行循环体，转而执行while循环后面的代码。</p>
+<p>while 循环的整体思路是这样的：设置一个带有变量的循环条件，也即一个带有变量的表达式；在循环体中额外添加一条语句，让它能够改变循环条件中变量的值。这样，随着循环的不断执行，循环条件中变量的值也会不断变化，终有一个时刻，循环条件不再成立，整个循环就结束了.</p>
+<h3 id="do-while循环"><a href="#do-while循环" class="headerlink" title="do while循环"></a>do while循环</h3><p>do-while循环<br>除了while循环，在C语言中还有一种 do-while 循环。</p>
+<p>do-while循环的一般形式为：<br>do{<br>    语句块<br>}while(表达式);</p>
+<p>do-while循环与while循环的不同在于：它会先执行“语句块”，然后再判断表达式是否为真，如果为真则继续循环；如果为假，则终止循环。因此，do-while 循环至少要执行一次“语句块”。</p>
+<p>用do-while计算1加到100的值：</p>
+<p>#include &lt;stdio.h&gt;<br>int main(){<br>    int i=1, sum=0;<br>    do{<br>        sum+=i;<br>        i++;<br>    }while(i&lt;=100);<br>    printf(“%d\n”, sum);<br>    return 0;<br>}<br>运行结果：<br>5050<br>注意while(i&lt;=100);最后的分号;，这个必须要有。<br>while循环和do-while各有特点，大家可以适当选择，实际编程中使用while循环较多。</p>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>除了while循环，C语言中还有 for 循环，它的使用更加灵活，完全可以取代 while 循环。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, sum=0;</span><br><span class="line">    for(i=1/*语句①*/; i&lt;=100/*语句②*/; i++/*语句③*/)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 for 循环中，语句①②③被集中到了一起，代码结构一目了然。</p>
+<p>for 循环的一般形式为：<br>···<br>for(表达式1; 表达式2; 表达式3){<br>    语句块<br>}<br>···</p>
+<p>它的运行过程为：<br>1) 先执行“表达式1”。</p>
+<p>2) 再执行“表达式2”，如果它的值为真（非0），则执行循环体，否则结束循环。</p>
+<p>3) 执行完循环体后再执行“表达式3”。</p>
+<p>4) 重复执行步骤 2) 和 3)，直到“表达式2”的值为假，就结束循环。</p>
+<p>上面的步骤中，2) 和 3) 是一次循环，会重复执行，for 语句的主要作用就是不断执行步骤 2) 和 3)。</p>
+<p>“表达式1”仅在第一次循环时执行，以后都不会再执行，可以认为这是一个初始化语句。“表达式2”一般是一个关系表达式，决定了是否还要继续下次循环，称为“循环条件”。“表达式3”很多情况下是一个带有自增或自减操作的表达式，以使循环条件逐渐变得“不成立”。</p>
+<p>我们再来分析一下“计算从1加到100的和”的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, sum=0;</span><br><span class="line">    for(i=1; i&lt;=100; i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：<br>5050</p>
+<p>代码分析：<br>1) 执行到 for 语句时，先给 i 赋初值1，判断 i&lt;=100 是否成立；因为此时 i=1，i&lt;=100 成立，所以执行循环体。循环体执行结束后（sum的值为1），再计算 i++。</p>
+<p>2) 第二次循环时，i 的值为2，i&lt;=100 成立，继续执行循环体。循环体执行结束后（sum的值为3），再计算 i++。</p>
+<p>3) 重复执行步骤 2)，直到第101次循环，此时 i 的值为101，i&lt;=100 不成立，所以结束循环。</p>
+<p>由此我们可以总结出for循环的一般形式：<br>for(初始化语句; 循环条件; 自增或自减){<br>    语句块<br>}</p>
+<h2 id="跳出循环"><a href="#跳出循环" class="headerlink" title="跳出循环"></a>跳出循环</h2><p>break关键字<br>break跳出当前循环，不在执行循环代码。</p>
+<p>continue语句<br>continue跳过当前一步的循环，继续执行</p>
+<h2 id="循环嵌套"><a href="#循环嵌套" class="headerlink" title="循环嵌套"></a>循环嵌套</h2><p>在C语言中，if-else、while、do-while、for 都可以相互嵌套。所谓嵌套（Nest），就是一条语句里面还有另一条语句，例如 for 里面还有 for，while 里面还有 while，或者 for 里面有 while，while 里面有 if-else，这都是允许的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=1; i&lt;=4; i++)&#123;  //外层for循环</span><br><span class="line">        for(j=1; j&lt;=4; j++)&#123;  //内层for循环</span><br><span class="line">            printf(&quot;i=%d, j=%d\n&quot;, i, j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="对选择结构和循环结构的总结"><a href="#对选择结构和循环结构的总结" class="headerlink" title="对选择结构和循环结构的总结"></a>对选择结构和循环结构的总结</h2><p>C语言中常用的编程结构有三种（其它编程语言也是如此），它们分别是：<br>    顺序结构：代码从前往后依次执行，没有任何“拐弯抹角”，不跳过任何一条语句，所有的语句都会被执行到。<br>    选择结构：也叫分支结构。代码会被分成多个部分，程序会根据特定条件（某个表达式的运算结果）来判断到底执行哪一部分。<br>    循环结构：程序会重新执行同一段代码，直到条件不再满足，或者遇到强行跳出语句（break 关键字）。</p>
+<h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><p>选择结构（分支结构）涉及到的关键字包括 if、else、switch、case、break，还有一个条件运算符? :（这是C语言中唯一的一个三目运算符）。其中，if…else 是最基本的结构，switch…case 和? :都是由 if…else 演化而来，它们都是为了让程序员书写更加方便。</p>
+<p>你可以只使用 if，也可以 if…else 配对使用。另外要善于使用 switch…case 和? :，有时候它们看起来更加清爽。</p>
+<p>if…else 可以嵌套使用，原则上嵌套的层次（深度）没有限制，但是过多的嵌套层次会让代码结构混乱。</p>
+<h3 id="循环结构"><a href="#循环结构" class="headerlink" title="循环结构"></a>循环结构</h3><p>C语言中常用的循环结构有 while 循环和 for 循环，它们都可以用来处理同一个问题，一般可以互相代替。</p>
+<p>除了 while 和 for，C语言中还有一个 goto 语句，它也能构成循环结构。不过由于 goto 语句很容易造成代码混乱，维护和阅读困难，饱受诟病，不被推荐，而且 goto 循环完全可以被其他循环取代，所以后来的很多编程语言都取消了 goto 语句，我们也不再讲解。<br>国内很多大学仍然讲解 goto 语句，但也仅仅是完成教材所设定的课程，goto 语句在实际开发中很难见到。<br>对于 while 和 do-while 循环，循环体中应包括使循环趋于结束的语句。</p>
+<p>对于 while 和 do-while 循环，循环变量的初始化操作应该在 while 和 do-while 语句之前完成，而 for 循环可以在内部实现循环变量的初始化。</p>
+<p>for 循环是最常用的循环，它的功能强大，一般都可以代替其他循环。</p>
+<p>最后还要注意 break 和 continue 关键字用于循环结构时的区别：<br>break 用来跳出所有循环，循环语句不再有执行的机会；<br>continue 用来结束本次循环，直接跳到下一次循环，如果循环条件成立，还会继续循环。</p>
+<p>此外，break 关键字还可以用于跳出 switch…case 语句。所谓“跳出”，是指一旦遇到 break，就不再执行 switch 中的任何语句，包括当前分支中的语句和其他分支中的语句；也就是说，整个 switch 执行结束了，接着会执行整个 switch 后面的代码。</p>
+
             </div>
             <hr/>
 
@@ -672,7 +724,8 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            if else 结构关系运算符逻辑运算符switch case 语句条件运算符
+                            if else 结构我们前面所写的程序都是顺序执行的，也就是先执行第一句，在执行第二句，第三句。。。。。。直到所有的语句都执行完，我们在程序中把这种结构的程序称为顺序结构！例如
+12345678#include &lt;stdio.h&gt
                         
                     </div>
                     <div class="publish-info">
