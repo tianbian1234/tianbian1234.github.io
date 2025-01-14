@@ -1,0 +1,990 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="选择, 天边彩的博客">
+    <meta name="description" content="if else 结构我们前面所写的程序都是顺序执行的，也就是先执行第一句，在执行第二句，第三句。。。。。。直到所有的语句都执行完，我们在程序中把这种结构的程序称为顺序结构！例如
+#include &amp;lt;stdio.h&amp;gt;int mai">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>选择 | 天边彩的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">天边彩的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>文章分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>文章归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>时间线</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于我</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="Search"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">天边彩的博客</div>
+        <div class="logo-desc">
+            
+            总有人间一两风，填我十万八千梦。
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                文章分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                文章归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                时间线
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于我
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        选择
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
+                                <span class="chip bg-color">教学</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
+                    2019-09-22
+                </div>
+
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>Read Count:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="if-else-结构"><a href="#if-else-结构" class="headerlink" title="if else 结构"></a>if else 结构</h2><p>我们前面所写的程序都是顺序执行的，也就是先执行第一句，在执行第二句，第三句。。。。。。直到所有的语句都执行完，<br>我们在程序中把这种结构的程序称为顺序结构！<br>例如</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    printf(&#x27;把冰箱门打开&#x27;)</span><br><span class="line">    printf(&#x27;把大象放进去&#x27;)</span><br><span class="line">    printf(&#x27;把冰箱门关上&#x27;)</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一个典型的顺序结构的例子，计算机只需要一步一步就可以完成任务了。<br>但是如果有一个程序，这个程序说，如果你掷骰子，掷到的是大于1小于等于3的数，就把大象放进去，否则就把<br>猴子放进去，这时候怎么办呢？是不是我们前面的办法就不能用了？总不能我们写两个程序，然后掷玩骰子，在<br>决定执行哪一个吧？显然这样是可以的，但是我们浪费了很多时间，也需要重新选择代码，这就尴尬了，明明机器<br>可以做的事情，你想是不是做一个判断就好了？<br>我们现在来理一下思路</p>
+<p>1.把冰箱门打开<br>2.判断骰子是大于1小于等于3的是吗？<br>是 -&gt; 把大象关进去<br>不是 -&gt; 把猴子关机去<br>3.把冰箱门关上</p>
+<p>你看这里是不是前后两部没有变化，只是在中间加了一个判断呢？对的，这个时候其实用程序写出来的话，就是<br>增加了我们的if else了。<br>来，跟着我先写一遍，把上面的程序修改一下就好了。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int judge;</span><br><span class="line">    printf(&#x27;把冰箱门打开&#x27;);</span><br><span class="line">    scanf(&quot;请输入掷骰子所得的数据 %d&quot;, &amp;judge);</span><br><span class="line">    if(judge &gt;1 &amp;&amp; judge &lt;= 3)&#123;</span><br><span class="line">        printf(&#x27;把大象放进去&#x27;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">         printf(&#x27;把猴子放进去&#x27;);</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">    printf(&#x27;把冰箱门关上&#x27;);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们把程序跑起来，然后测试一下，<br>可能的运行结果<br>···<br>把冰箱门打开<br>把大象放进去<br>把冰箱门关上<br>···<br>或者是<br>···<br>把冰箱门打开<br>把猴子放进去<br>把冰箱门关上<br>···</p>
+<p>在这段代码中我们判断了一下judge &gt; 1 并且 judge &lt;&#x3D; 3, 这里的 &gt; 号也就是数学中的大于号。这个&lt;&#x3D; 是什么呢？其实就是数学中的 ≦ 号。<br>表示小于且等于的意思<br>2&lt;&#x3D; 3这句话成立，因为2 是小于3的，3&lt;&#x3D;3成立吗？ 也是成立的，因为3是等于3的，他们并且的关系。有关这个符号我们会在后面讲到。</p>
+<p>if和else是两个新的关键是，if是“如果”的意思，else是“否则”的意思，用来对条件进行判断，并且根据判断执行不同的条件执行不同的<br>语句。总结起来，if else的结构为<br>···<br>if（判断条件）{<br>    语句块1<br>}else{<br>    语句块2<br>}<br>···<br>它的意思是如果条件成立就执行语句块1，条件不成立就执行语句块2</p>
+<p>流程图的画法，菱形表示判断，方形表示语句块 ，圆形表示结束。（如果孩子接受的块的话就讲一下，否则不讲。）</p>
+<p>那么有没有，单独使用if的时候呢？<br>if(判断条件){<br>    语句块<br>}</p>
+<p>使用多个if else的结够<br>if(判断条件1){<br>    语句块1<br>} else  if(判断条件2){<br>    语句块2<br>}else  if(判断条件3){<br>    语句块3<br>}else  if(判断条件m){<br>    语句块m<br>}else{<br>     语句块n<br>}</p>
+<p>全部都用同样的例子来写</p>
+<p>写一个分数区分优等生和及格生还有差生的程序。</p>
+<h2 id="关系运算符"><a href="#关系运算符" class="headerlink" title="关系运算符"></a>关系运算符</h2><p>什么叫关系运算符啊？<br>关系运算符在使用时，它的的两边都会有一个表达式，比如变量、数值、加减乘除运算等，关系运算符的作用就是判明这两个表达式的大小关系。注意，是判明大小关系，不是其他关系。</p>
+<p>这个就是它的定义，但是说白了呢，其实就是我们刚刚提到的关系式，也就是&lt; &lt;&#x3D; &gt; &gt;&#x3D; &#x3D;&#x3D; 也就是小与，小于等于，大于等于等一类表示大小，相等关系的<br>符号，在程序里面我们称为关系运算符。</p>
+<p>具体的有哪些呢？我们来看一下</p>
+<p>关系运算符都是双目运算符，其结合性均为左结合。关系运算符的优先级低于算术运算符，高于赋值运算符。在六个关系运算符中，&lt;、&lt;&#x3D;、&gt;、&gt;&#x3D;的优先级相同，高于&#x3D;&#x3D;和!&#x3D;，&#x3D;&#x3D;和!&#x3D;的优先级相同。</p>
+<p>在C语言中，有的运算符有两个操作数，例如 10+20，10和20都是操作数，+ 是运算符。我们将这样的运算符称为双目运算符。同理，将有一个操作数的运算符称为单目运算符，将有三个操作数的运算符称为三目运算符。</p>
+<p>常见的双目运算符有 +、-、*、&#x2F; 等，单目运算符有 ++、– 等，三目运算符只有一个，就是 ? :，我们将在《C语言条件运算符》中详细介绍。</p>
+<p>关系运算符的两边可以是变量、数据或表达式，例如：</p>
+<ol>
+<li>a+b &gt; c-d</li>
+<li>x &gt; 3&#x2F;2</li>
+<li>‘a’+1 &lt; c</li>
+<li>-i-5*j &#x3D;&#x3D; k+1</li>
+</ol>
+<p>关系运算符也可以嵌套使用，例如：</p>
+<ol>
+<li>a &gt; (b &gt; c)</li>
+<li>a !&#x3D; (c &#x3D;&#x3D; d)</li>
+</ol>
+<p>关系运算符的运算结果只有 0 或 1。当条件成立时结果为 1，条件不成立结果为 0。例如：<br>5&gt;0 成立，其值为 1；<br>34-12&gt;100 不成立，其值为 0；<br>(a&#x3D;3)&gt;(b&#x3D;5) 由于3&gt;5不成立，故其值为 0。</p>
+<p>我们将运算结果 1 称为“真”，表示条件成立，将 0 称为“假”，表示条件不成立。</p>
+<p>接下来我们可以写一个小程序验证一下这个问题</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p>逻辑运算符，顾名思义就是逻辑上的运算啦，有人会问逻辑上有什么运算呢？<br>从前有一个哥们遇到了一个问题，他手头有一个软件，这个软件只能给大于18岁和小于60岁的人使用，<br>这时候怎么判断应不应该给别人使用呢？<br>这时候你是不是首先想到了if else啊？那具体该怎么做呢？<br>来，我们先写一个框架出来</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int age;</span><br><span class="line">    float score;</span><br><span class="line">    printf(&quot;请输入你的年龄和成绩：&quot;);</span><br><span class="line">    scanf(&quot;%d %f&quot;, &amp;age, &amp;score);</span><br><span class="line">    if(age &gt;= 18)&#123;</span><br><span class="line">        if(score &gt;= 60)&#123;</span><br><span class="line">            printf(&quot;你满足条件，欢迎使用该软件\n&quot;);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            printf(&quot;抱歉，你的成绩不及格，不能使用该软件\n&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        printf(&quot;抱歉，你还未成年，不能使用该软件！\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这种方法虽然能够行得通，但不够简洁和专业，我们可以将其压缩为一条 if else 语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int age;</span><br><span class="line">    float score;</span><br><span class="line">    printf(&quot;请输入你的年龄和成绩：&quot;);</span><br><span class="line">    scanf(&quot;%d %f&quot;, &amp;age, &amp;score);</span><br><span class="line">    if(age&gt;=18 &amp;&amp; score&gt;=60)&#123;</span><br><span class="line">        printf(&quot;你满足条件，欢迎使用该软件\n&quot;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        printf(&quot;抱歉，你还未成年，或者成绩不及格，不能使用该软件！\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&amp;&amp;是一个新的运算符，称为逻辑运算符，表示age&gt;&#x3D;18和score&gt;&#x3D;60两个条件必须同时成立才能执行 if 后面的代码，否则就执行 else 后面的代码。</p>
+<ol>
+<li>与运算(&amp;&amp;)<br>参与运算的两个表达式都为真时，结果才为真，否则为假。例如：<br>5&amp;&amp;0</li>
+</ol>
+<p>5为真，0为假，相与的结果为假，也就是 0。<br>(5&gt;0) &amp;&amp; (4&gt;2)</p>
+<p>5&gt;0 的结果是1，为真，4&gt;2结果是1，也为真，所以相与的结果为真，也就是1。</p>
+<ol start="2">
+<li>或运算(||)<br>参与运算的两个表达式只要有一个为真，结果就为真；两个表达式都为假时结果才为假。例如：<br>10 || 0</li>
+</ol>
+<p>10为真，0为假，相或的结果为真，也就是 1。<br>(5&gt;0) || (5&gt;8)</p>
+<p>5&gt;0 的结果是1，为真，5&gt;8 的结果是0，为假，所以相或的结果为真，也就是1。</p>
+<ol start="3">
+<li>非运算(!)<br>参与运算的表达式为真时，结果为假；参与运算的表达式为假时，结果为真。例如：<br>!0</li>
+</ol>
+<p>0 为假，非运算的结果为真，也就是 1。<br>!(5&gt;0)</p>
+<p>5&gt;0 的结果是1，为真，非运算的结果为假，也就是 0。</p>
+<p>输出逻辑运算的结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a = 0, b = 10, c = -6;</span><br><span class="line">    int result_1 = a&amp;&amp;b, result_2 = c||0;</span><br><span class="line">    printf(&quot;%d, %d\n&quot;, result_1, !c);</span><br><span class="line">    printf(&quot;%d, %d\n&quot;, 9&amp;&amp;0, result_2);</span><br><span class="line">    printf(&quot;%d, %d\n&quot;, b||100, 0&amp;&amp;0);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>0, 0<br>0, 1<br>1, 0</p>
+<p>逻辑运算符和其它运算符优先级从低到高依次为：<br>赋值运算符(&#x3D;) &lt; &amp;&amp;和|| &lt; 关系运算符 &lt; 算术运算符 &lt; 非(!)</p>
+<p>&amp;&amp; 和 || 低于关系运算符，! 高于算术运算符。</p>
+<p>按照运算符的优先顺序可以得出：<br>a&gt;b &amp;&amp; c&gt;d  等价于  (a&gt;b)&amp;&amp;(c&gt;d)<br>!b&#x3D;&#x3D;c||d&lt;a  等价于  ((!b)&#x3D;&#x3D;c)||(d&lt;a)<br>a+b&gt;c&amp;&amp;x+y&lt;b  等价于  ((a+b)&gt;c)&amp;&amp;((x+y)&lt;b)</p>
+<p>另外，逻辑表达式也可以嵌套使用，例如a&gt;b &amp;&amp; b || 9&gt;c，a || c&gt;d &amp;&amp;  !p。</p>
+<p>逻辑运算符举例：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    char c=&#x27;k&#x27;;</span><br><span class="line">    int i=1,j=2,k=3;</span><br><span class="line">    float x=3e+5,y=0.85;</span><br><span class="line">    printf( &quot;%d,%d\n&quot;, !x*!y, !!!x );</span><br><span class="line">    printf( &quot;%d,%d\n&quot;, x||i&amp;&amp;j-3, i&lt;j&amp;&amp;x&lt;y );</span><br><span class="line">    printf( &quot;%d,%d\n&quot;, i==5&amp;&amp;c&amp;&amp;(j=8), x+y||i+j+k );</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：<br>0,0<br>1,0<br>0,1</p>
+<h2 id="switch-case-语句"><a href="#switch-case-语句" class="headerlink" title="switch case 语句"></a>switch case 语句</h2><p>C语言虽然没有限制 if else 能够处理的分支数量，但当分支过多时，用 if else 处理会不太方便，而且容易出现 if else 配对出错的情况。例如，输入一个整数，输出该整数对应的星期几的英文表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a;</span><br><span class="line">    printf(&quot;Input integer number:&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;a);</span><br><span class="line">    if(a==1)&#123;</span><br><span class="line">        printf(&quot;Monday\n&quot;);</span><br><span class="line">    &#125;else if(a==2)&#123;</span><br><span class="line">        printf(&quot;Tuesday\n&quot;);</span><br><span class="line">    &#125;else if(a==3)&#123;</span><br><span class="line">        printf(&quot;Wednesday\n&quot;);</span><br><span class="line">    &#125;else if(a==4)&#123;</span><br><span class="line">        printf(&quot;Thursday\n&quot;);</span><br><span class="line">    &#125;else if(a==5)&#123;</span><br><span class="line">        printf(&quot;Friday\n&quot;);</span><br><span class="line">    &#125;else if(a==6)&#123;</span><br><span class="line">        printf(&quot;Saturday\n&quot;);</span><br><span class="line">    &#125;else if(a==7)&#123;</span><br><span class="line">        printf(&quot;Sunday\n&quot;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        printf(&quot;error\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于这种情况，实际开发中一般使用 switch 语句代替，请看下面的代码</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int a;</span><br><span class="line">    printf(&quot;Input integer number:&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;a);</span><br><span class="line">    switch(a)&#123;</span><br><span class="line">        case 1: printf(&quot;Monday\n&quot;); break;</span><br><span class="line">        case 2: printf(&quot;Tuesday\n&quot;); break;</span><br><span class="line">        case 3: printf(&quot;Wednesday\n&quot;); break;</span><br><span class="line">        case 4: printf(&quot;Thursday\n&quot;); break;</span><br><span class="line">        case 5: printf(&quot;Friday\n&quot;); break;</span><br><span class="line">        case 6: printf(&quot;Saturday\n&quot;); break;</span><br><span class="line">        case 7: printf(&quot;Sunday\n&quot;); break;</span><br><span class="line">        default:printf(&quot;error\n&quot;); break;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="switch-语句的语句执行方式"><a href="#switch-语句的语句执行方式" class="headerlink" title="switch 语句的语句执行方式"></a>switch 语句的语句执行方式</h3><p>switch 是另外一种选择结构的语句，用来代替简单的、拥有多个分枝的 if else 语句，基本格式如下：<br>···<br>switch(表达式){<br>    case 整型数值1: 语句 1;<br>    case 整型数值2: 语句 2;<br>    ……<br>    case 整型数值n: 语句 n;<br>    default: 语句 n+1;<br>}<br>···</p>
+<p>它的执行过程是：</p>
+<ol>
+<li><p>首先计算“表达式”的值，假设为 m。</p>
+</li>
+<li><p>从第一个 case 开始，比较“整型数值1”和 m，如果它们相等，就执行冒号后面的所有语句，也就是从“语句1”一直执行到“语句n+1”，而不管后面的 case 是否匹配成功。</p>
+</li>
+<li><p>如果“整型数值1”和 m 不相等，就跳过冒号后面的“语句1”，继续比较第二个 case、第三个 case……一旦发现和某个整型数值相等了，就会执行后面所有的语句。假设 m 和“整型数值5”相等，那么就会从“语句5”一直执行到“语句n+1”。</p>
+</li>
+<li><p>如果直到最后一个“整型数值n”都没有找到相等的值，那么就执行 default 后的“语句 n+1”。</p>
+</li>
+</ol>
+<p>需要重点强调的是，当和某个整型数值匹配成功后，会执行该分支以及后面所有分支的语句。</p>
+<h3 id="break"><a href="#break" class="headerlink" title="break"></a>break</h3><p>break 是C语言中的一个关键字，专门用于跳出 switch 语句。所谓“跳出”，是指一旦遇到 break，就不再执行 switch 中的任何语句，包括当前分支中的语句和其他分支中的语句；也就是说，整个 switch 执行结束了，接着会执行整个 switch 后面的代码。</p>
+<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>想要获得两个数值之中的最大值，如果用if来做呢</p>
+<p>表达式1 ? 表达式2 : 表达式3</p>
+<p>唯一的一个三目运算符，<br>max &#x3D; (a&gt;b) ? a : b;</p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone, qq, weibo, douban"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>Reprint policy</span>
+        </p>
+        
+            <div class="center-align">
+                <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                    <img alt=""
+                         style="border-width:0"
+                         src="https://i.creativecommons.org/l/by/4.0/88x31.png"/>
+                </a>
+            </div>
+            <br/>
+            <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
+                  property="dct:title" rel="dct:type">
+                    《选择》
+                </span> by
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/09/22/%E8%AF%BE%E7%A8%8B/4.%E5%88%A4%E6%96%AD/" property="cc:attributionName"
+               rel="cc:attributionURL">
+                天边彩
+            </a> is licensed under a
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+                Creative Commons Attribution 4.0 International License
+            </a> 
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>Copied successfully, please follow the reprint policy of this article</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">more</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
+            <div class="card">
+                <a href="/2019/09/22/%E8%AF%BE%E7%A8%8B/5.%E5%BE%AA%E7%8E%AF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="循环">
+                        
+                        <span class="card-title">循环</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            #include &lt;stdio.h&gt;int main()&#123;    int i, j;    for(i=1; i&lt;=9; i++)&#123;  //外层for循环        for(j=1; j&lt;=i
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            天边彩
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
+                        <span class="chip bg-color">教学</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/09/21/%E9%AB%98%E7%9A%84%E5%90%88%E9%9B%86/%E6%83%B3%E6%B3%95/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="想法">
+                        
+                        <span class="card-title">想法</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            我都拥有的技能1.做网站2.擅长沟通3.可以些app
+周边环境1.开网店（这个可以开始了）
+2.做系统去买卖，实际过程中（抽时间写代码，把这些也放进去）
+3.培训（正在进行中的事业）
+4.微信公众号运营，擅长，电影和买卖吃的东西（目前还不知
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-09-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            天边彩
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%80%9D%E7%BB%B4/" target="_blank">
+                        <span class="chip bg-color">思维</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;TOC</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://blinkfox.github.io/" target="_blank">Blinkfox</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+    <a href="mailto:xxx@xx.xx" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=123123123" class="tooltipped" data-tooltip="QQ联系我: 123123123" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</span>
+            <input type="search" id="searchInput" name="s" placeholder="Please enter a search keyword"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
