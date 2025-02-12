@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="循环, 天边彩的博客">
-    <meta name="description" content="#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;    int i, j;    for(i=1; i&amp;lt;=9; i++)&amp;#123;  //外层for循环        for(j=1; j&amp;lt;=i">
+    <meta name="description" content="12345678910111213#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;    int i, j;    for(i=1; i&amp;lt;=9; i++)&amp;#123;  //外层for循环       ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -378,13 +378,22 @@
                     <div class="article-tag">
                         
                             <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                                <span class="chip bg-color">教学</span>
+                                <span class="chip bg-color">教学,</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                c语言教学
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -408,14 +417,14 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=1; i&lt;=9; i++)&#123;  //外层for循环</span><br><span class="line">        for(j=1; j&lt;=i; j++)&#123;  //内层for循环</span><br><span class="line">            printf(&quot;%d*%d=%-2d  &quot;, i, j, i*j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=1; i&lt;=9; i++)&#123;  //外层for循环</span><br><span class="line">        for(j=1; j&lt;=i; j++)&#123;  //内层for循环</span><br><span class="line">            printf(&quot;%d*%d=%-2d  &quot;, i, j, i*j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><p>在C语言中，共有三大常用的程序结构：<br>    顺序结构：代码从前往后执行，没有任何“拐弯抹角”；<br>    选择结构：也叫分支结构，重点要掌握 if else、switch 以及条件运算符；<br>    循环结构：重复执行同一段代码。</p>
 <p>前面讲解了顺序结构和选择结构，本节开始讲解循环结构。所谓循环（Loop），就是重复地执行同一段代码，例如要计算 1+2+3+……+99+100 的值，就要重复进行99次加法运算。</p>
 <p>while的一般形式为：<br>···<br>while(表达式){<br>    语句块<br>}<br>···<br>意思是，先计算“表达式”的值，当值为真（非0）时， 执行“语句块”；执行完“语句块”，再次计算表达式的值，如果为真，继续执行“语句块”……这个过程会一直重复，直到表达式的值为假（0），就退出循环，执行 while 后面的代码。</p>
 <p>我们通常将“表达式”称为循环条件，把“语句块”称为循环体，整个循环的过程就是不停判断循环条件、并执行循环体代码的过程。</p>
 <p>用 while 循环计算1加到100的值：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i=1, sum=0;</span><br><span class="line">    while(i&lt;=100)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i=1, sum=0;</span><br><span class="line">    while(i&lt;=100)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：<br>5050</p>
 <p>代码分析：</p>
 <ol>
@@ -434,7 +443,7 @@
 <p>do-while循环与while循环的不同在于：它会先执行“语句块”，然后再判断表达式是否为真，如果为真则继续循环；如果为假，则终止循环。因此，do-while 循环至少要执行一次“语句块”。</p>
 <p>用do-while计算1加到100的值：<br>#include &lt;stdio.h&gt;<br>int main(){<br>    int i&#x3D;1, sum&#x3D;0;<br>    do{<br>        sum+&#x3D;i;<br>        i++;<br>    }while(i&lt;&#x3D;100);<br>    printf(“%d\n”, sum);<br>    return 0;<br>}<br>运行结果：<br>5050<br>注意while(i&lt;&#x3D;100);最后的分号;，这个必须要有。<br>while循环和do-while各有特点，大家可以适当选择，实际编程中使用while循环较多。</p>
 <h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>除了while循环，C语言中还有 for 循环，它的使用更加灵活，完全可以取代 while 循环。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, sum=0;</span><br><span class="line">    for(i=1/*语句①*/; i&lt;=100/*语句②*/; i++/*语句③*/)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, sum=0;</span><br><span class="line">    for(i=1/*语句①*/; i&lt;=100/*语句②*/; i++/*语句③*/)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>在 for 循环中，语句①②③被集中到了一起，代码结构一目了然。</p>
 <p>for 循环的一般形式为：<br>···<br>for(表达式1; 表达式2; 表达式3){<br>    语句块<br>}<br>···</p>
 <p>它的运行过程为：</p>
@@ -451,7 +460,7 @@
 <p>上面的步骤中，2) 和 3) 是一次循环，会重复执行，for 语句的主要作用就是不断执行步骤 2) 和 3)。</p>
 <p>“表达式1”仅在第一次循环时执行，以后都不会再执行，可以认为这是一个初始化语句。“表达式2”一般是一个关系表达式，决定了是否还要继续下次循环，称为“循环条件”。“表达式3”很多情况下是一个带有自增或自减操作的表达式，以使循环条件逐渐变得“不成立”。</p>
 <p>我们再来分析一下“计算从1加到100的和”的代码：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, sum=0;</span><br><span class="line">    for(i=1; i&lt;=100; i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    int i, sum=0;</span><br><span class="line">    for(i=1; i&lt;=100; i++)&#123;</span><br><span class="line">        sum+=i;</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;%d\n&quot;,sum);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：<br>5050</p>
 <p>代码分析：</p>
 <ol>
@@ -466,7 +475,7 @@
 <h2 id="跳出循环"><a href="#跳出循环" class="headerlink" title="跳出循环"></a>跳出循环</h2><p>break关键字<br>break跳出当前循环，不在执行循环代码。</p>
 <p>continue语句<br>continue跳过当前一步的循环，继续执行</p>
 <h2 id="循环嵌套"><a href="#循环嵌套" class="headerlink" title="循环嵌套"></a>循环嵌套</h2><p>在C语言中，if-else、while、do-while、for 都可以相互嵌套。所谓嵌套（Nest），就是一条语句里面还有另一条语句，例如 for 里面还有 for，while 里面还有 while，或者 for 里面有 while，while 里面有 if-else，这都是允许的。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=1; i&lt;=4; i++)&#123;  //外层for循环</span><br><span class="line">        for(j=1; j&lt;=4; j++)&#123;  //内层for循环</span><br><span class="line">            printf(&quot;i=%d, j=%d\n&quot;, i, j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=1; i&lt;=4; i++)&#123;  //外层for循环</span><br><span class="line">        for(j=1; j&lt;=4; j++)&#123;  //内层for循环</span><br><span class="line">            printf(&quot;i=%d, j=%d\n&quot;, i, j);</span><br><span class="line">        &#125;</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="对选择结构和循环结构的总结"><a href="#对选择结构和循环结构的总结" class="headerlink" title="对选择结构和循环结构的总结"></a>对选择结构和循环结构的总结</h2><p>C语言中常用的编程结构有三种（其它编程语言也是如此），它们分别是：<br>    顺序结构：代码从前往后依次执行，没有任何“拐弯抹角”，不跳过任何一条语句，所有的语句都会被执行到。<br>    选择结构：也叫分支结构。代码会被分成多个部分，程序会根据特定条件（某个表达式的运算结果）来判断到底执行哪一部分。<br>    循环结构：程序会重新执行同一段代码，直到条件不再满足，或者遇到强行跳出语句（break 关键字）。</p>
 <h3 id="选择结构"><a href="#选择结构" class="headerlink" title="选择结构"></a>选择结构</h3><p>选择结构（分支结构）涉及到的关键字包括 if、else、switch、case、break，还有一个条件运算符? :（这是C语言中唯一的一个三目运算符）。其中，if…else 是最基本的结构，switch…case 和? :都是由 if…else 演化而来，它们都是为了让程序员书写更加方便。</p>
@@ -713,8 +722,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                        <span class="chip bg-color">教学</span>
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
                     </a>
                     
                 </div>
@@ -741,7 +750,7 @@
                     <div class="summary block-with-text">
                         
                             if else 结构我们前面所写的程序都是顺序执行的，也就是先执行第一句，在执行第二句，第三句。。。。。。直到所有的语句都执行完，我们在程序中把这种结构的程序称为顺序结构！例如
-#include &lt;stdio.h&gt;int mai
+12345678#include &lt;stdio.h&gt
                         
                     </div>
                     <div class="publish-info">
@@ -750,8 +759,12 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                    c语言教学
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -760,7 +773,7 @@
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                        <span class="chip bg-color">教学</span>
+                        <span class="chip bg-color">教学,</span>
                     </a>
                     
                 </div>

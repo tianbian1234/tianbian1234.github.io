@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="keywords" content="项目小实验, 天边彩的博客">
     <meta name="description" content="写一个内存泄漏的例子
-#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;    while(1)&amp;#123;  //死循环        malloc(1024">
+12345678#include &amp;lt;stdlib.h&amp;gt;#include &amp;lt;stdio.h&amp;gt;int main()&amp;#123;    while(1)&amp;#123;  //死循环        mal">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -379,13 +379,22 @@
                     <div class="article-tag">
                         
                             <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                                <span class="chip bg-color">教学</span>
+                                <span class="chip bg-color">教学,</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                c语言教学
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -410,7 +419,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>写一个内存泄漏的例子</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    while(1)&#123;  //死循环</span><br><span class="line">        malloc(1024);  //分配1024个字节的内存</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int main()&#123;</span><br><span class="line">    while(1)&#123;  //死循环</span><br><span class="line">        malloc(1024);  //分配1024个字节的内存</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="什么叫内存泄漏呢？"><a href="#什么叫内存泄漏呢？" class="headerlink" title="什么叫内存泄漏呢？"></a>什么叫内存泄漏呢？</h2><p>操作系统允许程序自己分配内存，并自由使用，使用完了还可以再释放掉，将内存归还给计算机。</p>
 <p>所谓分配内存，就是程序向计算机申请一块内存空间，然后自己使用；所谓释放内存，就是程序告诉计算机不再使用之前的内存空间了，需要归还给计算机，让其它程序使用。</p>
@@ -636,7 +645,7 @@
                     <div class="summary block-with-text">
                         
                             用开发板加上keil写出第一个小程序然后作为课前展示，方便进行后面的教导
-#include &lt;reg52.h&gt;sbit led1 = P2^0;int main()&#123;    while(1)&#123;        
+1234567#include &lt;reg52.h&gt;sbit led1 = P2^0;int main()&#123;    while(1)&#123; 
                         
                     </div>
                     <div class="publish-info">
@@ -645,8 +654,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                    c语言教学
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -655,7 +668,7 @@
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                        <span class="chip bg-color">教学</span>
+                        <span class="chip bg-color">教学,</span>
                     </a>
                     
                 </div>
@@ -691,8 +704,12 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                    c语言教学
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -701,7 +718,7 @@
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                        <span class="chip bg-color">教学</span>
+                        <span class="chip bg-color">教学,</span>
                     </a>
                     
                 </div>

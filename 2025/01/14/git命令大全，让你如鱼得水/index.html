@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="20191031, 天边彩的博客">
-    <meta name="description" content="20191031 | 天边彩的博客">
+    <meta name="keywords" content="git命令大全，让你如鱼得水, 天边彩的博客">
+    <meta name="description" content="git目前已经成为最流行的版本开发工具，不论是你是用国内的gitee，还是国外的github，或者使用本地部署的gitlab，都需要使用git命令来操作本地和线上代码，掌握git已经是程序员必须会的技能了，掌握以下20个git命令，帮你搞定">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>20191031 | 天边彩的博客</title>
+    <title>git命令大全，让你如鱼得水 | 天边彩的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -260,13 +260,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        20191031
+                        git命令大全，让你如鱼得水
                     </div>
                 </div>
             </div>
@@ -377,8 +377,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%A7%86%E9%A2%91/" target="_blank">
-                                <span class="chip bg-color">视频</span>
+                            <a href="/tags/git/" target="_blank">
+                                <span class="chip bg-color">git</span>
                             </a>
                         
                     </div>
@@ -386,13 +386,22 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/git/" class="post-category" target="_blank">
+                                git
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2019-10-30
+                    2025-01-14
                 </div>
 
                 
@@ -408,7 +417,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>git目前已经成为最流行的版本开发工具，不论是你是用国内的gitee，还是国外的github，或者使用本地部署的gitlab，都需要使用git命令来操作本地和线上代码，掌握git已经是程序员必须会的技能了，掌握以下20个git命令，帮你搞定git。</p>
+<h2 id="1、初始化配置"><a href="#1、初始化配置" class="headerlink" title="1、初始化配置"></a>1、初始化配置</h2><p>想要使用git，第一步肯定是注册一个账号，然后保存来使用了。配置本地用户环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 配置全局用户名和邮箱(注册成功的用户名和email)</span><br><span class="line">git config --global user.name &#x27;youself username&#x27;</span><br><span class="line">git config --global user.email &#x27;youself email&#x27;</span><br><span class="line"></span><br><span class="line">// 查看配置信息</span><br><span class="line">git config list</span><br></pre></td></tr></table></figure>
+
+<h2 id="2、仓库初始化"><a href="#2、仓库初始化" class="headerlink" title="2、仓库初始化"></a>2、仓库初始化</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//初始化新建的仓库</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line">// 克隆远程仓库</span><br><span class="line">git clone &lt;远程仓库地址&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、查看提交状态"><a href="#3、查看提交状态" class="headerlink" title="3、查看提交状态"></a>3、查看提交状态</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 查看提交状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">//产看简化状态信息</span><br><span class="line">git status -s</span><br><span class="line"></span><br><span class="line">//查看分支情况</span><br><span class="line">git branch -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、添加和提交"><a href="#4、添加和提交" class="headerlink" title="4、添加和提交"></a>4、添加和提交</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 添加到指定的暂存区</span><br><span class="line">git add &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line">// 添加全部</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">// 提交本地仓库</span><br><span class="line">git commti -m &#x27;提交的内容描述&#x27;</span><br><span class="line"></span><br><span class="line">// 添加并提交</span><br><span class="line">git commit -am &#x27;描述内容&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5、分支操作"><a href="#5、分支操作" class="headerlink" title="5、分支操作"></a>5、分支操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//创建分支</span><br><span class="line">git branch &lt;分支名称&gt;</span><br><span class="line">//切换分支</span><br><span class="line">git checkout &lt;分支名称&gt;</span><br><span class="line">//创建并切换分支</span><br><span class="line">git checkout -b &lt;分支名称&gt;</span><br><span class="line">//删除分支</span><br><span class="line">git branch -d &lt;分支名称&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6、远程仓库操作"><a href="#6、远程仓库操作" class="headerlink" title="6、远程仓库操作"></a>6、远程仓库操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 添加远程仓库</span><br><span class="line">git remote add origin &lt;repository-url&gt;</span><br><span class="line"></span><br><span class="line"># 查看远程仓库</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line"># 推送到远程</span><br><span class="line">git push origin &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"># 拉取远程更新</span><br><span class="line">git pull origin &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、处理分支合并"><a href="#7、处理分支合并" class="headerlink" title="7、处理分支合并"></a>7、处理分支合并</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 合并分支</span><br><span class="line">git merge &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"># 变基操作</span><br><span class="line">git rebase &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"># 解决冲突后继续变基</span><br><span class="line">git rebase --continue</span><br></pre></td></tr></table></figure>
+
+<h2 id="8、临时暂存命令"><a href="#8、临时暂存命令" class="headerlink" title="8、临时暂存命令"></a>8、临时暂存命令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 保存当前工作进度</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"># 查看存储的工作进度</span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line"># 恢复最近的进度</span><br><span class="line">git stash pop</span><br><span class="line"></span><br><span class="line"># 删除所有进度</span><br><span class="line">git stash clear</span><br></pre></td></tr></table></figure>
+
+<h2 id="9、日志查看"><a href="#9、日志查看" class="headerlink" title="9、日志查看"></a>9、日志查看</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看提交日志</span><br><span class="line">git log</span><br><span class="line"></span><br><span class="line"># 查看简化日志</span><br><span class="line">git log --oneline</span><br><span class="line"></span><br><span class="line"># 查看图形化日志</span><br><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+
+<h2 id="10、差异比较"><a href="#10、差异比较" class="headerlink" title="10、差异比较"></a>10、差异比较</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 查看工作区和暂存区的差异</span><br><span class="line">git diff</span><br><span class="line"></span><br><span class="line"># 查看暂存区和最新提交的差异</span><br><span class="line">git diff --staged</span><br><span class="line"></span><br><span class="line"># 查看两个分支的差异</span><br><span class="line">git diff &lt;branch1&gt; &lt;branch2&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="11、修正错误的指令"><a href="#11、修正错误的指令" class="headerlink" title="11、修正错误的指令"></a>11、修正错误的指令</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 撤销工作区的修改</span><br><span class="line">git checkout -- &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line"># 撤销暂存区的修改</span><br><span class="line">git reset HEAD &lt;file-name&gt;</span><br><span class="line"></span><br><span class="line"># 创建反向提交</span><br><span class="line">git revert &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="12、重制操作"><a href="#12、重制操作" class="headerlink" title="12、重制操作"></a>12、重制操作</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#软重置</span><br><span class="line">git reset --soft HEAD^</span><br><span class="line"># 混合重置</span><br><span class="line">git reset --mixed HEAD^</span><br><span class="line"></span><br><span class="line"># 硬重置</span><br><span class="line">git reset --hard HEAD^</span><br></pre></td></tr></table></figure>
+
+<h2 id="13、版本标记"><a href="#13、版本标记" class="headerlink" title="13、版本标记"></a>13、版本标记</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 创建标签</span><br><span class="line">git tag &lt;tag-name&gt;</span><br><span class="line"># 创建带注释的标签</span><br><span class="line">git tag -a &lt;tag-name&gt;-m &quot;tag message</span><br><span class="line"># 推送标签到远程</span><br><span class="line">git push origin &lt;tag-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="14、管理项目依赖"><a href="#14、管理项目依赖" class="headerlink" title="14、管理项目依赖"></a>14、管理项目依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#添加子模块</span><br><span class="line">git submodule add &lt;repository-url&gt;</span><br><span class="line"></span><br><span class="line">#初始化子模块</span><br><span class="line">git submodule init</span><br><span class="line"></span><br><span class="line">#更新子模块</span><br><span class="line">git submodule update</span><br></pre></td></tr></table></figure>
+
+<h2 id="15、工作流相关"><a href="#15、工作流相关" class="headerlink" title="15、工作流相关"></a>15、工作流相关</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#创建补丁</span><br><span class="line">git format-patch -1 &lt;commit-id&gt;</span><br><span class="line"></span><br><span class="line">#应用补丁</span><br><span class="line">git apply &lt;patch-file&gt;</span><br><span class="line"></span><br><span class="line">#拣选提交</span><br><span class="line">git cherry-pick &lt;commit-id&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="16、提高效率的快捷命令-别名配置"><a href="#16、提高效率的快捷命令-别名配置" class="headerlink" title="16、提高效率的快捷命令-别名配置"></a>16、提高效率的快捷命令-别名配置</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#配置常用别名</span><br><span class="line">git config --global alias.co checkout</span><br><span class="line">git config --global alias.br branch</span><br><span class="line">git config --global alias.ci commit</span><br><span class="line">git config --global alias.st status</span><br></pre></td></tr></table></figure>
+
+<h2 id="17、忽略文件"><a href="#17、忽略文件" class="headerlink" title="17、忽略文件"></a>17、忽略文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#创建-gitignore 文件</span><br><span class="line">touch .gitignore</span><br><span class="line">#常见配置示例</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">.Ds_store</span><br></pre></td></tr></table></figure>
+
+<h2 id="18、历史管理"><a href="#18、历史管理" class="headerlink" title="18、历史管理"></a>18、历史管理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 修改最后一次提交</span><br><span class="line">git commit --amend</span><br><span class="line"></span><br><span class="line">#压缩历史</span><br><span class="line">git rebase -i HEAD~3</span><br><span class="line"></span><br><span class="line">#清理历史</span><br><span class="line">git gc</span><br></pre></td></tr></table></figure>
+
+<h2 id="19、远程分支管理"><a href="#19、远程分支管理" class="headerlink" title="19、远程分支管理"></a>19、远程分支管理</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看远程分支</span><br><span class="line">git remote show origin</span><br><span class="line"></span><br><span class="line">#清理远程分支</span><br><span class="line">git remote prune origin</span><br><span class="line"></span><br><span class="line">#跟踪远程分支</span><br><span class="line">git branch --track &lt;branch-name&gt; origin/&lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="20、高级查找"><a href="#20、高级查找" class="headerlink" title="20、高级查找"></a>20、高级查找</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查找内容</span><br><span class="line">git grep &quot;search-term&#x27;</span><br><span class="line"></span><br><span class="line">#查找提交者</span><br><span class="line">git log --author=&quot;author-name&#x27;</span><br><span class="line"></span><br><span class="line">#按日期查找</span><br><span class="line">git log --since=&quot;2025-01-14&quot;</span><br></pre></td></tr></table></figure>
+
+
             </div>
             <hr/>
 
@@ -566,9 +617,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《20191031》
+                    《git命令大全，让你如鱼得水》
                 </span> by
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/10/30/%E6%96%87%E7%AB%A0/20191031/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2025/01/14/git%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%EF%BC%8C%E8%AE%A9%E4%BD%A0%E5%A6%82%E9%B1%BC%E5%BE%97%E6%B0%B4/" property="cc:attributionName"
                rel="cc:attributionURL">
                 天边彩
             </a> is licensed under a
@@ -612,32 +663,33 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2019/11/01/%E9%AB%98%E7%9A%84%E5%90%88%E9%9B%86/%E5%AE%A3%E4%BC%A0%E4%BD%BF%E7%94%A8/">
+                <a href="/2025/02/10/%E5%88%9B%E4%B8%9A/%E4%BB%8E%E8%BF%90%E8%90%A5%E7%AC%AC%E4%B8%80%E4%B8%AA%E4%BA%A7%E5%93%81%E5%BC%80%E5%A7%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="宣传使用">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="从运营第一个产品开始">
                         
-                        <span class="card-title">宣传使用</span>
+                        <span class="card-title">从运营第一个产品开始</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.通过学习编程可以让孩子不再沉迷于游戏，转为对编程的探索和思考
-2.编程本身对锻炼孩子的逻辑能力，思维能力有很大帮助，同时还可以开发智力，让孩子对数学和物理等学科产生好奇，提高数学和物理成绩
-3.课程设计专业，符合少儿认知的规律和特点
-4
+                            飞鸟简介我们是一群喜欢研究代码，追求前沿的程序员，我们更多专注于数据可视化领域，但是并不仅限于数据可视化，我们一样可以开发2B或者2C的任何软件，比入我们可以为企业做OA，也可以定制化各种系统，我们也可以做CRM，小程序，混合app等等，这
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-01
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2025-02-10
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%88%9B%E4%B8%9A/" class="post-category" target="_blank">
+                                    创业
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -645,8 +697,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%B5%84%E6%BA%90/" target="_blank">
-                        <span class="chip bg-color">资源</span>
+                    <a href="/tags/%E5%88%9B%E4%B8%9A/" target="_blank">
+                        <span class="chip bg-color">创业</span>
                     </a>
                     
                 </div>
@@ -660,29 +712,33 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/28/%E7%88%AC%E8%99%AB/%E7%99%BE%E5%BA%A6%E5%9B%BE%E7%89%87%E7%88%AC%E8%99%AB/">
+                <a href="/2025/01/08/javascript/%E5%B8%B8%E7%94%A8Javascript%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0%E6%95%B4%E7%90%86/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="百度图片爬虫">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="常用Javascript工具函数整理">
                         
-                        <span class="card-title">百度图片爬虫</span>
+                        <span class="card-title">常用Javascript工具函数整理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            1、isStatic：检测数据是不是除了symbol之外的原始数据123456789function isStatic(value)&#123;  return (    typeof value === &#x27;string&#x27
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-28
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2025-01-08
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Javascript/" class="post-category" target="_blank">
+                                    Javascript
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -690,8 +746,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%88%AC%E8%99%AB/" target="_blank">
-                        <span class="chip bg-color">爬虫</span>
+                    <a href="/tags/Javascript/" target="_blank">
+                        <span class="chip bg-color">Javascript</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%A5%E5%85%B7%E5%87%BD%E6%95%B0/" target="_blank">
+                        <span class="chip bg-color">工具函数</span>
                     </a>
                     
                 </div>

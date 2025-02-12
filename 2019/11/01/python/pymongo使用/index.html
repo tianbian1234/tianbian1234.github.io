@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="pymongo使用, 天边彩的博客">
-    <meta name="description" content="使用python访问mongo1.本地访问    from pymongo import MongoClientclient = MongoClient()2.当mongo部署在其他服务起的时候MongoDB URI的格式为mongodb:">
+    <meta name="description" content="使用python访问mongo1.本地访问    12from pymongo import MongoClientclient = MongoClient()2.当mongo部署在其他服务起的时候MongoDB URI的格式为mongod">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -386,6 +386,15 @@
                 </div>
                 <div class="col s5 right-align">
                     
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                python
+                            </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
 
@@ -408,11 +417,11 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="使用python访问mongo"><a href="#使用python访问mongo" class="headerlink" title="使用python访问mongo"></a>使用python访问mongo</h2><p>1.本地访问<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line">client = MongoClient()</span><br></pre></td></tr></table></figure><br>2.当mongo部署在其他服务起的时候<br>MongoDB URI的格式为<br>mongodb:&#x2F;&#x2F;用户名:密码@服务器IP或域名:端口<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line">                    </span><br><span class="line">client = MongoClient(&#x27;mongodb://kingname:1234@45.76.110.210:27019&#x27;)</span><br></pre></td></tr></table></figure></p>
-<h2 id="Python初始化数据库与集合的两种方式"><a href="#Python初始化数据库与集合的两种方式" class="headerlink" title="Python初始化数据库与集合的两种方式"></a>Python初始化数据库与集合的两种方式</h2><p>方式1:<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">form pymongo import MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient()</span><br><span class="line"></span><br><span class="line">database = client.Chapter6</span><br><span class="line"></span><br><span class="line">collection = database.spider</span><br></pre></td></tr></table></figure><br>要注意，使用方式1的时候，代码中的“Chapter”和“spider”都不是变量名，他们直接就是库的名字和集合的名字。</p>
-<p>方式2:<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient()</span><br><span class="line"></span><br><span class="line">db_name = &#x27;Chapter6&#x27;</span><br><span class="line"></span><br><span class="line">col_name = &#x27;spider&#x27;</span><br><span class="line"></span><br><span class="line">database = client[db_name]</span><br><span class="line"></span><br><span class="line">collection = client[col_name]</span><br></pre></td></tr></table></figure><br>使用方式2，在方括号中指定库名和集合名。</p>
+                <h2 id="使用python访问mongo"><a href="#使用python访问mongo" class="headerlink" title="使用python访问mongo"></a>使用python访问mongo</h2><p>1.本地访问<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line">client = MongoClient()</span><br></pre></td></tr></table></figure><br>2.当mongo部署在其他服务起的时候<br>MongoDB URI的格式为<br>mongodb:&#x2F;&#x2F;用户名:密码@服务器IP或域名:端口<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line">                    </span><br><span class="line">client = MongoClient(&#x27;mongodb://kingname:1234@45.76.110.210:27019&#x27;)</span><br></pre></td></tr></table></figure></p>
+<h2 id="Python初始化数据库与集合的两种方式"><a href="#Python初始化数据库与集合的两种方式" class="headerlink" title="Python初始化数据库与集合的两种方式"></a>Python初始化数据库与集合的两种方式</h2><p>方式1:<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">form pymongo import MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient()</span><br><span class="line"></span><br><span class="line">database = client.Chapter6</span><br><span class="line"></span><br><span class="line">collection = database.spider</span><br></pre></td></tr></table></figure><br>要注意，使用方式1的时候，代码中的“Chapter”和“spider”都不是变量名，他们直接就是库的名字和集合的名字。</p>
+<p>方式2:<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">from pymongo import MongoClient</span><br><span class="line"></span><br><span class="line">client = MongoClient()</span><br><span class="line"></span><br><span class="line">db_name = &#x27;Chapter6&#x27;</span><br><span class="line"></span><br><span class="line">col_name = &#x27;spider&#x27;</span><br><span class="line"></span><br><span class="line">database = client[db_name]</span><br><span class="line"></span><br><span class="line">collection = client[col_name]</span><br></pre></td></tr></table></figure><br>使用方式2，在方括号中指定库名和集合名。</p>
 <p>开始mongo服务<br>mongod –config &#x2F;usr&#x2F;local&#x2F;etc&#x2F;mongod.conf</p>
-<p>mongo创建库和表并插入数据<br>    <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import pymongo</span><br><span class="line"></span><br><span class="line">myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)</span><br><span class="line">mydb = myclient[&quot;runoobdb&quot;]</span><br><span class="line">mycol = mydb[&quot;sites&quot;]</span><br><span class="line"></span><br><span class="line">mydict = &#123; </span><br><span class="line">    &quot;name&quot;: &quot;RUNOOB&quot;, </span><br><span class="line">    &quot;alexa&quot;: &quot;10000&quot;, </span><br><span class="line">    &quot;url&quot;: &quot;https://www.runoob.com&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">x = mycol.insert_one(mydict) </span><br><span class="line">x = mycol.insert_many(mydict) 适用于插入多个的时候</span><br><span class="line">print(x)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
+<p>mongo创建库和表并插入数据<br>    <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import pymongo</span><br><span class="line"></span><br><span class="line">myclient = pymongo.MongoClient(&quot;mongodb://localhost:27017/&quot;)</span><br><span class="line">mydb = myclient[&quot;runoobdb&quot;]</span><br><span class="line">mycol = mydb[&quot;sites&quot;]</span><br><span class="line"></span><br><span class="line">mydict = &#123; </span><br><span class="line">    &quot;name&quot;: &quot;RUNOOB&quot;, </span><br><span class="line">    &quot;alexa&quot;: &quot;10000&quot;, </span><br><span class="line">    &quot;url&quot;: &quot;https://www.runoob.com&quot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">x = mycol.insert_one(mydict) </span><br><span class="line">x = mycol.insert_many(mydict) 适用于插入多个的时候</span><br><span class="line">print(x)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure></p>
 <p>mongo查询数据库<br>myclient &#x3D; pymongo.MongoClient(“mongodb:&#x2F;&#x2F;localhost:27017”)<br>mydb &#x3D; myclient[‘runoobdb’]<br>mycol &#x3D; mydb[‘sites’]</p>
 <p>mycol.find_one({‘name’: ‘mike’})<br>results &#x3D; mycol.find({‘age’: 20})<br>results &#x3D; mycol.find({‘age’: {‘$gt’: 20}})</p>
 <p>比较符号归纳</p>
@@ -728,7 +737,7 @@
                         
                             1.用 homebrew 安装 tesseract
 2.用 pip 安装 pytesseract 和 pillow
-3.验证图片    import pyreseract from PIL import Imageimage = Image
+3.验证图片    12345import pyreseract from PIL import Imageimage = 
                         
                     </div>
                     <div class="publish-info">
@@ -737,8 +746,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/python/" class="post-category" target="_blank">
+                                    python
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -761,19 +774,22 @@
                 Next&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/01/20191101/">
+                <a href="/2019/11/01/%E9%AB%98%E7%9A%84%E5%90%88%E9%9B%86/%E5%AE%A3%E4%BC%A0%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="20191101">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="宣传使用">
                         
-                        <span class="card-title">20191101</span>
+                        <span class="card-title">宣传使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            1.通过学习编程可以让孩子不再沉迷于游戏，转为对编程的探索和思考
+2.编程本身对锻炼孩子的逻辑能力，思维能力有很大帮助，同时还可以开发智力，让孩子对数学和物理等学科产生好奇，提高数学和物理成绩
+3.课程设计专业，符合少儿认知的规律和特点
+4
                         
                     </div>
                     <div class="publish-info">
@@ -787,6 +803,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%B5%84%E6%BA%90/" target="_blank">
+                        <span class="chip bg-color">资源</span>
+                    </a>
+                    
                 </div>
                 
             </div>

@@ -375,12 +375,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category" target="_blank">
+                                C语言
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -413,7 +426,7 @@
 <p>通过这个循环，就可以对每一个的可能情况进行检查。当然，是通过调用分鱼的递归函数来进行检查的。</p>
 <p>分鱼的递归函数如下：<br>fish()函数中包含了两个参数：n和x。n表示参与分鱼的人数，x表示n个人分鱼前鱼的总条数。这两个参数都是由main()函数中传递进来的。</p>
 <p>根据前面的分析，当n&#x3D;5时，(x-1)mod5&#x3D;&#x3D;0必须成立，否则该x值不是满足题意的值，退出fish()函数，返回到main()函数，main()函数中再传递新的x值到fish中进行检验。如果(x-1)mod5&#x3D;&#x3D;0条件成立，则要判断n&#x3D;4时，(x-1)mod5&#x3D;0条件是否成立，需要注意的是，此时的形参x是4个人分鱼前鱼的总条数，即f(5,x)递归调用f(4,(x-1)&#x2F;5*4)。这样依次进行下去，直到n&#x3D;1时，(x-1)mod5&#x3D;&#x3D;0条件仍成立，则说明开始从main()函数中传递进来的x值是符合题意要求的一个值，可以逐层从递归函数中返回，每次返回值都为1，直至返回到main()函数。</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">/*分鱼递归函数*/</span><br><span class="line">int fish(int n, int x)</span><br><span class="line">&#123;</span><br><span class="line">    if((x-1)%5 == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n == 1)</span><br><span class="line">            return 1;  /*递归出口*/</span><br><span class="line">        else</span><br><span class="line">            return fish(n-1, (x-1)/5*4);  /*递归调用*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;  /*x不是符合题意的解，返回0*/</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, flag=0, x;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        i=i+1;</span><br><span class="line">        x=i*5+1;  /*x最小值为6，以后每次增加5*/</span><br><span class="line">        if(fish(5, x))  /*将x传入分鱼递归函数进行检验*/</span><br><span class="line">        &#123;</span><br><span class="line">            flag=1;  /*找到第一个符合题意的x则置标志位为1*/</span><br><span class="line">            printf(&quot;五个人合伙捕到的鱼总数为%d\n&quot;, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!flag);  /*未找到符合题意的x，继续循环，否则退出循环*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">/*分鱼递归函数*/</span><br><span class="line">int fish(int n, int x)</span><br><span class="line">&#123;</span><br><span class="line">    if((x-1)%5 == 0)</span><br><span class="line">    &#123;</span><br><span class="line">        if(n == 1)</span><br><span class="line">            return 1;  /*递归出口*/</span><br><span class="line">        else</span><br><span class="line">            return fish(n-1, (x-1)/5*4);  /*递归调用*/</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;  /*x不是符合题意的解，返回0*/</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int i=0, flag=0, x;</span><br><span class="line">    do</span><br><span class="line">    &#123;</span><br><span class="line">        i=i+1;</span><br><span class="line">        x=i*5+1;  /*x最小值为6，以后每次增加5*/</span><br><span class="line">        if(fish(5, x))  /*将x传入分鱼递归函数进行检验*/</span><br><span class="line">        &#123;</span><br><span class="line">            flag=1;  /*找到第一个符合题意的x则置标志位为1*/</span><br><span class="line">            printf(&quot;五个人合伙捕到的鱼总数为%d\n&quot;, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    while(!flag);  /*未找到符合题意的x，继续循环，否则退出循环*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -638,11 +651,23 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category" target="_blank">
+                                    C语言
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -668,7 +693,7 @@
                         
                             课程流程1.变量和常量的定义2.变量和常量分别是什么？
 先写一个小程序来理解变量是什么？
-#include &lt;stdio.h&gt;int main()&#123;    const name = &quot;richa&quot; 
+1234567#include &lt;stdio.h&gt;int main()&#123;    const name = &quot;richa
                         
                     </div>
                     <div class="publish-info">
@@ -677,8 +702,12 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                    c语言教学
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -687,7 +716,7 @@
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                        <span class="chip bg-color">教学</span>
+                        <span class="chip bg-color">教学,</span>
                     </a>
                     
                 </div>

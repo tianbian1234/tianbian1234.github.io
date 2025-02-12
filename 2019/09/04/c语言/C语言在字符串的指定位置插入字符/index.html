@@ -377,12 +377,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C%E8%AF%AD%E8%A8%80/" target="_blank">
+                                <span class="chip bg-color">C语言</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category" target="_blank">
+                                C语言
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -410,7 +423,7 @@
 <h2 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h2><p>在字符串S的所有数字字符前加一个$字符，可以有两种实现方法。</p>
 <p>方法一：用串S拷贝出另一个串T，对串T从头至尾扫描，对非数字字符原样写入串S，对于数字字符先写一个$符号再写该数字字符，最后，在S串尾加结束标志。使用此方法是牺牲空间，赢得时间。</p>
 <p>方法二：对串S从头至尾扫描，当遇到数字字符时，从该字符至串尾的所有字符右移一位，在该数字字符的原位置上写入一个$。使用此方法是节省了空间，但浪费了时间。</p>
-<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int fun(char *s)</span><br><span class="line">&#123;</span><br><span class="line">    char t[80];</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=0; s[i]; i++)  /*将串s拷贝至串t*/</span><br><span class="line">        t[i]=s[i];</span><br><span class="line">    t[i]=&#x27;\0&#x27;;</span><br><span class="line">    for(i=0,j=0; t[i]; i++)</span><br><span class="line">    /*对于数字字符先写一个$符号，再写该数字字符*/</span><br><span class="line">        if(t[i]&gt;=&#x27;0&#x27; &amp;&amp; t[i]&lt;=&#x27;9&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            s[j++]=&#x27;$&#x27;;</span><br><span class="line">            s[j++]=t[i];</span><br><span class="line">        &#125;</span><br><span class="line">    /*对于非数字字符原样写入串s*/</span><br><span class="line">        else</span><br><span class="line">            s[j++]=t[i];</span><br><span class="line">    s[j]=&#x27;\0&#x27;;  /*在串s结尾加结束标志*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s[80];</span><br><span class="line">    printf ( &quot;Enter a string:&quot; );</span><br><span class="line">    scanf (&quot;%s&quot;, s);  /*输入字符串*/</span><br><span class="line">    fun(s);</span><br><span class="line">    printf (&quot;The result: %s\n&quot;, s);  /*输出结果*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">int fun(char *s)</span><br><span class="line">&#123;</span><br><span class="line">    char t[80];</span><br><span class="line">    int i, j;</span><br><span class="line">    for(i=0; s[i]; i++)  /*将串s拷贝至串t*/</span><br><span class="line">        t[i]=s[i];</span><br><span class="line">    t[i]=&#x27;\0&#x27;;</span><br><span class="line">    for(i=0,j=0; t[i]; i++)</span><br><span class="line">    /*对于数字字符先写一个$符号，再写该数字字符*/</span><br><span class="line">        if(t[i]&gt;=&#x27;0&#x27; &amp;&amp; t[i]&lt;=&#x27;9&#x27;)</span><br><span class="line">        &#123;</span><br><span class="line">            s[j++]=&#x27;$&#x27;;</span><br><span class="line">            s[j++]=t[i];</span><br><span class="line">        &#125;</span><br><span class="line">    /*对于非数字字符原样写入串s*/</span><br><span class="line">        else</span><br><span class="line">            s[j++]=t[i];</span><br><span class="line">    s[j]=&#x27;\0&#x27;;  /*在串s结尾加结束标志*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    char s[80];</span><br><span class="line">    printf ( &quot;Enter a string:&quot; );</span><br><span class="line">    scanf (&quot;%s&quot;, s);  /*输入字符串*/</span><br><span class="line">    fun(s);</span><br><span class="line">    printf (&quot;The result: %s\n&quot;, s);  /*输出结果*/</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
             </div>
             <hr/>
 
@@ -635,8 +648,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/c%E8%AF%AD%E8%A8%80%E6%95%99%E5%AD%A6/" class="post-category" target="_blank">
+                                    c语言教学
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -645,7 +662,7 @@
                 <div class="card-action article-tags">
                     
                     <a href="/tags/%E6%95%99%E5%AD%A6/" target="_blank">
-                        <span class="chip bg-color">教学</span>
+                        <span class="chip bg-color">教学,</span>
                     </a>
                     
                 </div>
@@ -681,11 +698,23 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fa fa-user fa-fw"></i>
-                            天边彩
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/C%E8%AF%AD%E8%A8%80/" class="post-category" target="_blank">
+                                    C语言
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C%E8%AF%AD%E8%A8%80/" target="_blank">
+                        <span class="chip bg-color">C语言</span>
+                    </a>
+                    
                 </div>
                 
             </div>
